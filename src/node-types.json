@@ -520,10 +520,6 @@
         "required": false,
         "types": [
           {
-            "type": ".",
-            "named": false
-          },
-          {
             "type": "lower",
             "named": true
           }

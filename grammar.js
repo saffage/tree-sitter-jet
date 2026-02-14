@@ -55,7 +55,7 @@ export default grammar({
       seq(
         "import",
         field("package", $.lower),
-        field("module", repeat(seq(".", $.lower))),
+        repeat(seq(".", field("module", $.lower))),
         optional(
           seq(
             "{",

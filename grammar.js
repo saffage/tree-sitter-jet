@@ -12,8 +12,15 @@ function list_of(rule, separator) {
 export default grammar({
   name: "jet",
   extras: $ => [/\s/, $.doc_comment, $.comment],
+  inline: $ => [
+    $.statements,
+    $.statement,
+    $.expression,
+    $.string_like,
+    $.statement_separator,
+  ],
   rules: {
-    source_file: $ => list_of($.statement, $.statement_separator),
+    source_file: $ => $.statements,
 
     /*
      * Newline can be used as statement separator but to reduce token spamming
@@ -24,6 +31,7 @@ export default grammar({
     doc_comment: _ => prec(2, seq("##", /.*/)),
     comment: _ => choice(prec(1, seq("#", /.*/)), prec(3, seq("###", /.*/))),
 
+    statements: $ => list_of($.statement, $.statement_separator),
     statement_separator: $ => choice(";", $.newline),
     statement: $ =>
       choice(
@@ -50,7 +58,13 @@ export default grammar({
       ),
 
     type_definition: $ =>
-      seq("type", $.upper, optional($.type_params), optional($.type_body)),
+      seq(
+        "type",
+        repeat($.newline),
+        field("name", $.upper),
+        optional(field("type_parameters", $.type_params)),
+        optional(field("type_body", $.type_body)),
+      ),
     type_params: $ => seq("(", list_of($.lower, ","), ")"),
     type_body: $ =>
       seq(
@@ -61,14 +75,18 @@ export default grammar({
         ),
         "}",
       ),
-    type_field: $ => seq($.lower, $.type),
+    type_field: $ => seq(field("name", $.lower), $.type),
     type_constructor: $ =>
       seq($.upper, seq("(", list_of($.type_constructor_value, ","), ")")),
     type_constructor_value: $ => seq(optional($.label), $.type),
 
     label: $ => seq($.lower, ":"),
 
-    expression: $ => $.lower,
+    expression: $ => choice($.lower, $.upper, $.string_like, $.list),
+
+    list: $ => seq("[", $.list_item, "]"),
+    list_item: $ => choice($.list_spread, $.expression),
+    list_spread: $ => seq("..", $.expression),
 
     type: $ => choice($.lower, seq($.upper, optional($.type_args))),
     type_args: $ =>
@@ -112,7 +130,34 @@ export default grammar({
     list_item_pattern: $ =>
       choice(seq("..", optional($.binding_pattern)), $.pattern),
 
-    block: $ => seq("{", $.expression, "}"),
+    block: $ => seq("{", $.statements, "}"),
+
+    string_like: $ => choice($.string_line, $.string),
+    string: $ =>
+      seq(
+        '"',
+        repeat(
+          choice($.escaped_sequence, $.string_fmt_escape, $.string_fmt, /./),
+        ),
+        '"',
+      ),
+    string_line: _ => seq("\\\\", /.*/),
+    string_fmt: $ => seq("{", optional($.statements), "}"),
+    string_fmt_escape: _ => /\{\{|\}\}/,
+    escaped_sequence: _ =>
+      seq(
+        "\\",
+        choice(
+          // Common escape sequences.
+          /[nrt'\"\\]/,
+
+          // ASCII\byte escape.
+          /x(_?[a-fA-F0-9]){2}/,
+
+          // Unicode codepoint.
+          /u\{[a-fA-F0-9]{1,6}\}/,
+        ),
+      ),
 
     lower: _ => /[a-z][a-zA-Z0-9_]*/,
     upper: _ => /[A-Z][a-zA-Z0-9_]*/,

@@ -95,7 +95,17 @@ export default grammar({
 
     label: $ => seq($.lower, ":"),
 
-    expression: $ => choice($.lower, $.upper, $.string_like, $.list, $.when),
+    expression: $ =>
+      choice(
+        $.lower,
+        $.upper,
+        $.string_like,
+        $.list,
+        $.block,
+        $.when,
+        $.if_else,
+        $.lambda,
+      ),
 
     list: $ => seq("[", maybe_list_of($.list_item, ","), "]"),
     list_item: $ => choice($.list_spread, $.expression),
@@ -123,6 +133,25 @@ export default grammar({
         "->",
         repeat($.newline),
         $.expression,
+      ),
+
+    lambda: $ =>
+      prec.right(
+        seq(
+          "fn",
+          repeat($.newline),
+          $.parameters,
+          optional(field("return_type", $.type)),
+          optional(field("body", $.block)),
+        ),
+      ),
+
+    if_else: $ =>
+      seq(
+        "if",
+        field("condition", $.expression),
+        field("then_block", $.block),
+        optional(seq("else", choice($.if_else, field("else_block", $.block)))),
       ),
 
     type: $ => choice($.lower, seq($.upper, optional($.type_args))),

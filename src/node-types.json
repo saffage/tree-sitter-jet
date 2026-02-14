@@ -23,11 +23,23 @@
       "required": false,
       "types": [
         {
+          "type": "block",
+          "named": true
+        },
+        {
           "type": "constant_definition",
           "named": true
         },
         {
           "type": "function_definition",
+          "named": true
+        },
+        {
+          "type": "if_else",
+          "named": true
+        },
+        {
+          "type": "lambda",
           "named": true
         },
         {
@@ -84,6 +96,18 @@
         "required": false,
         "types": [
           {
+            "type": "block",
+            "named": true
+          },
+          {
+            "type": "if_else",
+            "named": true
+          },
+          {
+            "type": "lambda",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -119,7 +143,19 @@
           "named": true
         },
         {
+          "type": "block",
+          "named": true
+        },
+        {
           "type": "constructor_pattern",
+          "named": true
+        },
+        {
+          "type": "if_else",
+          "named": true
+        },
+        {
+          "type": "lambda",
           "named": true
         },
         {
@@ -179,6 +215,18 @@
         "multiple": false,
         "required": true,
         "types": [
+          {
+            "type": "block",
+            "named": true
+          },
+          {
+            "type": "if_else",
+            "named": true
+          },
+          {
+            "type": "lambda",
+            "named": true
+          },
           {
             "type": "list",
             "named": true
@@ -362,6 +410,84 @@
     }
   },
   {
+    "type": "if_else",
+    "named": true,
+    "fields": {
+      "condition": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "block",
+            "named": true
+          },
+          {
+            "type": "if_else",
+            "named": true
+          },
+          {
+            "type": "lambda",
+            "named": true
+          },
+          {
+            "type": "list",
+            "named": true
+          },
+          {
+            "type": "lower",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "string_line",
+            "named": true
+          },
+          {
+            "type": "upper",
+            "named": true
+          },
+          {
+            "type": "when",
+            "named": true
+          }
+        ]
+      },
+      "else_block": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "block",
+            "named": true
+          }
+        ]
+      },
+      "then_block": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "block",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "if_else",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "label",
     "named": true,
     "fields": {},
@@ -371,6 +497,46 @@
       "types": [
         {
           "type": "lower",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "lambda",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "block",
+            "named": true
+          }
+        ]
+      },
+      "return_type": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "type",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "newline",
+          "named": true
+        },
+        {
+          "type": "parameters",
           "named": true
         }
       ]
@@ -399,6 +565,18 @@
       "multiple": false,
       "required": true,
       "types": [
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "if_else",
+          "named": true
+        },
+        {
+          "type": "lambda",
+          "named": true
+        },
         {
           "type": "list",
           "named": true
@@ -504,6 +682,18 @@
       "required": true,
       "types": [
         {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "if_else",
+          "named": true
+        },
+        {
+          "type": "lambda",
+          "named": true
+        },
+        {
           "type": "list",
           "named": true
         },
@@ -602,11 +792,23 @@
       "required": false,
       "types": [
         {
+          "type": "block",
+          "named": true
+        },
+        {
           "type": "constant_definition",
           "named": true
         },
         {
           "type": "function_definition",
+          "named": true
+        },
+        {
+          "type": "if_else",
+          "named": true
+        },
+        {
+          "type": "lambda",
           "named": true
         },
         {
@@ -676,11 +878,23 @@
       "required": false,
       "types": [
         {
+          "type": "block",
+          "named": true
+        },
+        {
           "type": "constant_definition",
           "named": true
         },
         {
           "type": "function_definition",
+          "named": true
+        },
+        {
+          "type": "if_else",
+          "named": true
+        },
+        {
+          "type": "lambda",
           "named": true
         },
         {
@@ -933,6 +1147,18 @@
         "required": true,
         "types": [
           {
+            "type": "block",
+            "named": true
+          },
+          {
+            "type": "if_else",
+            "named": true
+          },
+          {
+            "type": "lambda",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -1040,6 +1266,10 @@
   },
   {
     "type": "as",
+    "named": false
+  },
+  {
+    "type": "else",
     "named": false
   },
   {

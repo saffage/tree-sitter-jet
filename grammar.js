@@ -44,10 +44,32 @@ export default grammar({
     statement_separator: $ => choice(";", $.newline),
     statement: $ =>
       choice(
+        $.import,
         $.constant_definition,
         $.function_definition,
         $.type_definition,
         $.expression,
+      ),
+
+    import: $ =>
+      seq(
+        "import",
+        field("package", $.lower),
+        field("module", repeat(seq(".", $.lower))),
+        optional(
+          seq(
+            "{",
+            maybe_list_of(
+              choice(
+                field("function_or_constant", $.lower),
+                field("constructor", $.upper),
+                field("type", seq("type", $.upper)),
+              ),
+              ",",
+            ),
+            "}",
+          ),
+        ),
       ),
 
     constant_definition: $ =>

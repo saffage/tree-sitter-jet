@@ -39,6 +39,10 @@
           "named": true
         },
         {
+          "type": "import",
+          "named": true
+        },
+        {
           "type": "lambda",
           "named": true
         },
@@ -488,6 +492,70 @@
     }
   },
   {
+    "type": "import",
+    "named": true,
+    "fields": {
+      "constructor": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "upper",
+            "named": true
+          }
+        ]
+      },
+      "function_or_constant": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "lower",
+            "named": true
+          }
+        ]
+      },
+      "module": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ".",
+            "named": false
+          },
+          {
+            "type": "lower",
+            "named": true
+          }
+        ]
+      },
+      "package": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "lower",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "type",
+            "named": false
+          },
+          {
+            "type": "upper",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "label",
     "named": true,
     "fields": {},
@@ -808,6 +876,10 @@
           "named": true
         },
         {
+          "type": "import",
+          "named": true
+        },
+        {
           "type": "lambda",
           "named": true
         },
@@ -891,6 +963,10 @@
         },
         {
           "type": "if_else",
+          "named": true
+        },
+        {
+          "type": "import",
           "named": true
         },
         {
@@ -1233,6 +1309,10 @@
     "named": false
   },
   {
+    "type": ".",
+    "named": false
+  },
+  {
     "type": "..",
     "named": false
   },
@@ -1278,6 +1358,10 @@
   },
   {
     "type": "if",
+    "named": false
+  },
+  {
+    "type": "import",
     "named": false
   },
   {

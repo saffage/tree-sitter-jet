@@ -9,6 +9,14 @@ function list_of(rule, separator) {
   return seq(rule, repeat(seq(separator, rule)), optional(separator));
 }
 
+/**
+ * @param {RuleOrLiteral} rule
+ * @param {RuleOrLiteral} separator
+ */
+function maybe_list_of(rule, separator) {
+  return optional(list_of(rule, separator));
+}
+
 export default grammar({
   name: "jet",
   extras: $ => [/\s/, $.doc_comment, $.comment],
@@ -16,6 +24,7 @@ export default grammar({
     $.statements,
     $.statement,
     $.expression,
+    $.pattern,
     $.string_like,
     $.statement_separator,
   ],
@@ -26,7 +35,7 @@ export default grammar({
      * Newline can be used as statement separator but to reduce token spamming
      * we match multiple newlines.
      */
-    newline: $ => /(\r?\n)+/,
+    newline: _ => /(\r?\n)+/,
 
     doc_comment: _ => prec(2, seq("##", /.*/)),
     comment: _ => choice(prec(1, seq("#", /.*/)), prec(3, seq("###", /.*/))),
@@ -66,15 +75,13 @@ export default grammar({
         optional($.type_body),
       ),
     type_parameters: $ =>
-      seq("(", optional(list_of(field("type_parameter", $.lower), ",")), ")"),
+      seq("(", maybe_list_of(field("type_parameter", $.lower), ","), ")"),
     type_body: $ =>
       seq(
         "{",
-        optional(
-          list_of(
-            choice($.type_field, $.type_constructor),
-            $.statement_separator,
-          ),
+        maybe_list_of(
+          choice($.type_field, $.type_constructor),
+          $.statement_separator,
         ),
         "}",
       ),
@@ -88,11 +95,27 @@ export default grammar({
 
     label: $ => seq($.lower, ":"),
 
-    expression: $ => choice($.lower, $.upper, $.string_like, $.list),
+    expression: $ => choice($.lower, $.upper, $.string_like, $.list, $.when),
 
-    list: $ => seq("[", $.list_item, "]"),
+    list: $ => seq("[", maybe_list_of($.list_item, ","), "]"),
     list_item: $ => choice($.list_spread, $.expression),
     list_spread: $ => seq("..", $.expression),
+
+    when: $ =>
+      seq(
+        "when",
+        field("subject", $.expression),
+        "{",
+        maybe_list_of($.clause, $.statement_separator),
+        "}",
+      ),
+    clause: $ =>
+      seq(
+        $.pattern,
+        optional(seq("if", field("guard_expression", $.expression))),
+        "->",
+        $.expression,
+      ),
 
     type: $ => choice($.lower, seq($.upper, optional($.type_args))),
     type_args: $ =>
@@ -109,6 +132,9 @@ export default grammar({
         ")",
       ),
 
+    /*
+     * Patterns grammar.
+     */
     pattern: $ =>
       choice(
         $.rebinding_pattern,
@@ -121,20 +147,9 @@ export default grammar({
     rebinding_pattern: $ => seq($.pattern, "as", $.binding_pattern),
     typed_binding_pattern: $ => seq($.binding_pattern, $.type),
     constructor_pattern: $ => $.upper,
-    list_pattern: $ =>
-      seq(
-        "[",
-        optional(
-          seq(
-            $.list_item_pattern,
-            repeat(seq(",", $.list_item_pattern)),
-            optional(","),
-          ),
-        ),
-        "]",
-      ),
-    list_item_pattern: $ =>
-      choice(seq("..", optional($.binding_pattern)), $.pattern),
+    list_pattern: $ => seq("[", maybe_list_of($.list_pattern_item, ","), "]"),
+    list_pattern_item: $ => choice($.list_pattern_spead, $.pattern),
+    list_pattern_spead: $ => seq("..", optional($.binding_pattern)),
 
     block: $ => seq("{", optional($.statements), "}"),
 

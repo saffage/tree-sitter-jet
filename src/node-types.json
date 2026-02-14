@@ -553,7 +553,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "newline",
@@ -573,17 +573,24 @@
   {
     "type": "type_constructor",
     "named": true,
-    "fields": {},
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "upper",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "type_constructor_value",
-          "named": true
-        },
-        {
-          "type": "upper",
           "named": true
         }
       ]
@@ -621,26 +628,6 @@
             "named": true
           }
         ]
-      },
-      "type_body": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "type_body",
-            "named": true
-          }
-        ]
-      },
-      "type_parameters": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "type_params",
-            "named": true
-          }
-        ]
       }
     },
     "children": {
@@ -650,6 +637,14 @@
         {
           "type": "newline",
           "named": true
+        },
+        {
+          "type": "type_body",
+          "named": true
+        },
+        {
+          "type": "type_parameters",
+          "named": true
         }
       ]
     }
@@ -657,15 +652,22 @@
   {
     "type": "type_field",
     "named": true,
-    "fields": {},
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "lower",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
-        {
-          "type": "lower",
-          "named": true
-        },
         {
           "type": "type",
           "named": true
@@ -674,18 +676,19 @@
     }
   },
   {
-    "type": "type_params",
+    "type": "type_parameters",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "lower",
-          "named": true
-        }
-      ]
+    "fields": {
+      "type_parameter": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "lower",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {

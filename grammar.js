@@ -62,17 +62,19 @@ export default grammar({
         "type",
         repeat($.newline),
         field("name", $.upper),
-        optional(field("type_parameters", $.type_params)),
-        optional(field("type_body", $.type_body)),
+        optional($.type_parameters),
+        optional($.type_body),
       ),
-    type_params: $ =>
-      seq("(", list_of(field("type_parameter", $.lower), ","), ")"),
+    type_parameters: $ =>
+      seq("(", optional(list_of(field("type_parameter", $.lower), ",")), ")"),
     type_body: $ =>
       seq(
         "{",
-        list_of(
-          choice($.type_field, $.type_constructor),
-          $.statement_separator,
+        optional(
+          list_of(
+            choice($.type_field, $.type_constructor),
+            $.statement_separator,
+          ),
         ),
         "}",
       ),
@@ -80,7 +82,7 @@ export default grammar({
     type_constructor: $ =>
       seq(
         field("name", $.upper),
-        seq("(", list_of($.type_constructor_value, ","), ")"),
+        optional(seq("(", list_of($.type_constructor_value, ","), ")")),
       ),
     type_constructor_value: $ => seq(optional($.label), $.type),
 
@@ -134,7 +136,7 @@ export default grammar({
     list_item_pattern: $ =>
       choice(seq("..", optional($.binding_pattern)), $.pattern),
 
-    block: $ => seq("{", $.statements, "}"),
+    block: $ => seq("{", optional($.statements), "}"),
 
     string_like: $ => choice($.string_line, $.string),
     string: $ =>

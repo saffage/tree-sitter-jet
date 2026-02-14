@@ -61,8 +61,8 @@ export default grammar({
           field("name", $.lower),
           repeat($.newline),
           field("parameters", $.parameters),
-          field("return_type", optional($.type)),
-          field("body", optional($.block)),
+          optional(field("return_type", $.type)),
+          optional(field("body", $.block)),
         ),
       ),
 
@@ -104,16 +104,24 @@ export default grammar({
     when: $ =>
       seq(
         "when",
+        // repeat($.newline),
         field("subject", $.expression),
+        // repeat($.newline),
         "{",
+        // repeat($.newline),
         maybe_list_of($.clause, $.statement_separator),
+        // repeat($.newline),
         "}",
       ),
     clause: $ =>
       seq(
         $.pattern,
-        optional(seq("if", field("guard_expression", $.expression))),
+        optional(
+          field("guard", seq("if", field("guard_expression", $.expression))),
+        ),
+        repeat($.newline),
         "->",
+        repeat($.newline),
         $.expression,
       ),
 
@@ -146,7 +154,14 @@ export default grammar({
     binding_pattern: $ => $.lower,
     rebinding_pattern: $ => seq($.pattern, "as", $.binding_pattern),
     typed_binding_pattern: $ => seq($.binding_pattern, $.type),
-    constructor_pattern: $ => $.upper,
+    constructor_pattern: $ =>
+      seq(
+        field("name", $.upper),
+        optional(
+          seq("(", maybe_list_of($.constructor_value_pattern, ","), ")"),
+        ),
+      ),
+    constructor_value_pattern: $ => seq(optional($.label), $.pattern),
     list_pattern: $ => seq("[", maybe_list_of($.list_pattern_item, ","), "]"),
     list_pattern_item: $ => choice($.list_pattern_spead, $.pattern),
     list_pattern_spead: $ => seq("..", optional($.binding_pattern)),

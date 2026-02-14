@@ -69,6 +69,16 @@
     "type": "clause",
     "named": true,
     "fields": {
+      "guard": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "if",
+            "named": false
+          }
+        ]
+      },
       "guard_expression": {
         "multiple": false,
         "required": false,
@@ -122,6 +132,10 @@
         },
         {
           "type": "lower",
+          "named": true
+        },
+        {
+          "type": "newline",
           "named": true
         },
         {
@@ -222,13 +236,59 @@
   {
     "type": "constructor_pattern",
     "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "upper",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "constructor_value_pattern",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "constructor_value_pattern",
+    "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
-          "type": "upper",
+          "type": "binding_pattern",
+          "named": true
+        },
+        {
+          "type": "constructor_pattern",
+          "named": true
+        },
+        {
+          "type": "label",
+          "named": true
+        },
+        {
+          "type": "list_pattern",
+          "named": true
+        },
+        {
+          "type": "rebinding_pattern",
+          "named": true
+        },
+        {
+          "type": "typed_binding_pattern",
           "named": true
         }
       ]

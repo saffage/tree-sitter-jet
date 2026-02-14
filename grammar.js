@@ -173,14 +173,14 @@ export default grammar({
       seq(
         '"',
         repeat(
-          choice($.escaped_sequence, $.string_fmt_escape, $.string_fmt, /./),
+          choice($.escape_sequence, $.string_fmt_escape, $.string_fmt, /./),
         ),
         '"',
       ),
     string_line: _ => seq("\\\\", /.*/),
     string_fmt: $ => seq("{", optional($.statements), "}"),
     string_fmt_escape: _ => /\{\{|\}\}/,
-    escaped_sequence: _ =>
+    escape_sequence: _ =>
       seq(
         "\\",
         choice(

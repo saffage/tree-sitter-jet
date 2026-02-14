@@ -301,7 +301,7 @@
     "fields": {}
   },
   {
-    "type": "escaped_sequence",
+    "type": "escape_sequence",
     "named": true,
     "fields": {}
   },
@@ -653,7 +653,7 @@
       "required": false,
       "types": [
         {
-          "type": "escaped_sequence",
+          "type": "escape_sequence",
           "named": true
         },
         {

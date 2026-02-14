@@ -48,9 +48,9 @@ enum ts_symbol_identifiers {
   anon_sym_BSLASH_BSLASH = 26,
   sym_string_fmt_escape = 27,
   anon_sym_BSLASH = 28,
-  aux_sym_escaped_sequence_token1 = 29,
-  aux_sym_escaped_sequence_token2 = 30,
-  aux_sym_escaped_sequence_token3 = 31,
+  aux_sym_escape_sequence_token1 = 29,
+  aux_sym_escape_sequence_token2 = 30,
+  aux_sym_escape_sequence_token3 = 31,
   sym_lower = 32,
   sym_upper = 33,
   sym_source_file = 34,
@@ -85,7 +85,7 @@ enum ts_symbol_identifiers {
   sym_string = 63,
   sym_string_line = 64,
   sym_string_fmt = 65,
-  sym_escaped_sequence = 66,
+  sym_escape_sequence = 66,
   aux_sym_statements_repeat1 = 67,
   aux_sym_function_definition_repeat1 = 68,
   aux_sym_type_parameters_repeat1 = 69,
@@ -130,9 +130,9 @@ static const char * const ts_symbol_names[] = {
   [anon_sym_BSLASH_BSLASH] = "\\\\",
   [sym_string_fmt_escape] = "string_fmt_escape",
   [anon_sym_BSLASH] = "\\",
-  [aux_sym_escaped_sequence_token1] = "escaped_sequence_token1",
-  [aux_sym_escaped_sequence_token2] = "escaped_sequence_token2",
-  [aux_sym_escaped_sequence_token3] = "escaped_sequence_token3",
+  [aux_sym_escape_sequence_token1] = "escape_sequence_token1",
+  [aux_sym_escape_sequence_token2] = "escape_sequence_token2",
+  [aux_sym_escape_sequence_token3] = "escape_sequence_token3",
   [sym_lower] = "lower",
   [sym_upper] = "upper",
   [sym_source_file] = "source_file",
@@ -167,7 +167,7 @@ static const char * const ts_symbol_names[] = {
   [sym_string] = "string",
   [sym_string_line] = "string_line",
   [sym_string_fmt] = "string_fmt",
-  [sym_escaped_sequence] = "escaped_sequence",
+  [sym_escape_sequence] = "escape_sequence",
   [aux_sym_statements_repeat1] = "statements_repeat1",
   [aux_sym_function_definition_repeat1] = "function_definition_repeat1",
   [aux_sym_type_parameters_repeat1] = "type_parameters_repeat1",
@@ -212,9 +212,9 @@ static const TSSymbol ts_symbol_map[] = {
   [anon_sym_BSLASH_BSLASH] = anon_sym_BSLASH_BSLASH,
   [sym_string_fmt_escape] = sym_string_fmt_escape,
   [anon_sym_BSLASH] = anon_sym_BSLASH,
-  [aux_sym_escaped_sequence_token1] = aux_sym_escaped_sequence_token1,
-  [aux_sym_escaped_sequence_token2] = aux_sym_escaped_sequence_token2,
-  [aux_sym_escaped_sequence_token3] = aux_sym_escaped_sequence_token3,
+  [aux_sym_escape_sequence_token1] = aux_sym_escape_sequence_token1,
+  [aux_sym_escape_sequence_token2] = aux_sym_escape_sequence_token2,
+  [aux_sym_escape_sequence_token3] = aux_sym_escape_sequence_token3,
   [sym_lower] = sym_lower,
   [sym_upper] = sym_upper,
   [sym_source_file] = sym_source_file,
@@ -249,7 +249,7 @@ static const TSSymbol ts_symbol_map[] = {
   [sym_string] = sym_string,
   [sym_string_line] = sym_string_line,
   [sym_string_fmt] = sym_string_fmt,
-  [sym_escaped_sequence] = sym_escaped_sequence,
+  [sym_escape_sequence] = sym_escape_sequence,
   [aux_sym_statements_repeat1] = aux_sym_statements_repeat1,
   [aux_sym_function_definition_repeat1] = aux_sym_function_definition_repeat1,
   [aux_sym_type_parameters_repeat1] = aux_sym_type_parameters_repeat1,
@@ -381,15 +381,15 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = true,
     .named = false,
   },
-  [aux_sym_escaped_sequence_token1] = {
+  [aux_sym_escape_sequence_token1] = {
     .visible = false,
     .named = false,
   },
-  [aux_sym_escaped_sequence_token2] = {
+  [aux_sym_escape_sequence_token2] = {
     .visible = false,
     .named = false,
   },
-  [aux_sym_escaped_sequence_token3] = {
+  [aux_sym_escape_sequence_token3] = {
     .visible = false,
     .named = false,
   },
@@ -529,7 +529,7 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = true,
     .named = true,
   },
-  [sym_escaped_sequence] = {
+  [sym_escape_sequence] = {
     .visible = true,
     .named = true,
   },
@@ -1675,13 +1675,13 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       ACCEPT_TOKEN(anon_sym_BSLASH);
       END_STATE();
     case 80:
-      ACCEPT_TOKEN(aux_sym_escaped_sequence_token1);
+      ACCEPT_TOKEN(aux_sym_escape_sequence_token1);
       END_STATE();
     case 81:
-      ACCEPT_TOKEN(aux_sym_escaped_sequence_token2);
+      ACCEPT_TOKEN(aux_sym_escape_sequence_token2);
       END_STATE();
     case 82:
-      ACCEPT_TOKEN(aux_sym_escaped_sequence_token3);
+      ACCEPT_TOKEN(aux_sym_escape_sequence_token3);
       END_STATE();
     case 83:
       ACCEPT_TOKEN(sym_lower);
@@ -2246,9 +2246,9 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_as] = ACTIONS(1),
     [anon_sym_DQUOTE] = ACTIONS(1),
     [anon_sym_BSLASH] = ACTIONS(1),
-    [aux_sym_escaped_sequence_token1] = ACTIONS(1),
-    [aux_sym_escaped_sequence_token2] = ACTIONS(1),
-    [aux_sym_escaped_sequence_token3] = ACTIONS(1),
+    [aux_sym_escape_sequence_token1] = ACTIONS(1),
+    [aux_sym_escape_sequence_token2] = ACTIONS(1),
+    [aux_sym_escape_sequence_token3] = ACTIONS(1),
     [sym_upper] = ACTIONS(1),
   },
   [STATE(1)] = {
@@ -4415,7 +4415,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_comment,
     STATE(159), 2,
       sym_string_fmt,
-      sym_escaped_sequence,
+      sym_escape_sequence,
   [3003] = 11,
     ACTIONS(3), 1,
       anon_sym_POUND_POUND,
@@ -4459,7 +4459,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_string_fmt_escape,
     STATE(159), 2,
       sym_string_fmt,
-      sym_escaped_sequence,
+      sym_escape_sequence,
     STATE(73), 3,
       sym_doc_comment,
       sym_comment,
@@ -4653,7 +4653,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_comment,
     STATE(159), 2,
       sym_string_fmt,
-      sym_escaped_sequence,
+      sym_escape_sequence,
   [3339] = 10,
     ACTIONS(3), 1,
       anon_sym_POUND_POUND,
@@ -4677,7 +4677,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_comment,
     STATE(159), 2,
       sym_string_fmt,
-      sym_escaped_sequence,
+      sym_escape_sequence,
   [3373] = 11,
     ACTIONS(3), 1,
       anon_sym_POUND_POUND,
@@ -4823,7 +4823,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_comment,
     STATE(159), 2,
       sym_string_fmt,
-      sym_escaped_sequence,
+      sym_escape_sequence,
   [3581] = 10,
     ACTIONS(3), 1,
       anon_sym_POUND_POUND,
@@ -4847,7 +4847,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_comment,
     STATE(159), 2,
       sym_string_fmt,
-      sym_escaped_sequence,
+      sym_escape_sequence,
   [3615] = 11,
     ACTIONS(3), 1,
       anon_sym_POUND_POUND,
@@ -4896,7 +4896,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_comment,
     STATE(159), 2,
       sym_string_fmt,
-      sym_escaped_sequence,
+      sym_escape_sequence,
   [3685] = 7,
     ACTIONS(3), 1,
       anon_sym_POUND_POUND,
@@ -9464,9 +9464,9 @@ static const uint16_t ts_small_parse_table[] = {
       sym_doc_comment,
       sym_comment,
     ACTIONS(973), 3,
-      aux_sym_escaped_sequence_token1,
-      aux_sym_escaped_sequence_token2,
-      aux_sym_escaped_sequence_token3,
+      aux_sym_escape_sequence_token1,
+      aux_sym_escape_sequence_token2,
+      aux_sym_escape_sequence_token3,
   [10073] = 7,
     ACTIONS(3), 1,
       anon_sym_POUND_POUND,
@@ -10949,7 +10949,7 @@ static const TSParseActionEntry ts_parse_actions[] = {
   [460] = {.entry = {.count = 1, .reusable = true}}, SHIFT(298),
   [462] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_function_definition, 5, 0, 14),
   [464] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_function_definition, 5, 0, 14),
-  [466] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_escaped_sequence, 2, 0, 0),
+  [466] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_escape_sequence, 2, 0, 0),
   [468] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_constructor_pattern, 4, 0, 1),
   [470] = {.entry = {.count = 1, .reusable = true}}, SHIFT(305),
   [472] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_typed_binding_pattern, 2, 0, 0),

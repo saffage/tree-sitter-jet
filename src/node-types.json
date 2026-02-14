@@ -381,16 +381,6 @@
           }
         ]
       },
-      "parameters": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "parameters",
-            "named": true
-          }
-        ]
-      },
       "return_type": {
         "multiple": false,
         "required": false,
@@ -404,10 +394,14 @@
     },
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "newline",
+          "named": true
+        },
+        {
+          "type": "parameters",
           "named": true
         }
       ]
@@ -933,6 +927,10 @@
         {
           "type": "string_fmt_escape",
           "named": true
+        },
+        {
+          "type": "string_segment",
+          "named": true
         }
       ]
     }
@@ -1374,6 +1372,10 @@
   },
   {
     "type": "string_fmt_escape",
+    "named": true
+  },
+  {
+    "type": "string_segment",
     "named": true
   },
   {

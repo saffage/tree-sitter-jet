@@ -82,7 +82,7 @@ export default grammar({
           repeat($.newline),
           field("name", $.lower),
           repeat($.newline),
-          field("parameters", $.parameters),
+          $.parameters,
           optional(field("return_type", $.type)),
           optional(field("body", $.block)),
         ),
@@ -136,13 +136,11 @@ export default grammar({
     when: $ =>
       seq(
         "when",
-        // repeat($.newline),
+        repeat($.newline),
         field("subject", $.expression),
-        // repeat($.newline),
+        repeat($.newline),
         "{",
-        // repeat($.newline),
         maybe_list_of($.clause, $.statement_separator),
-        // repeat($.newline),
         "}",
       ),
     clause: $ =>
@@ -224,13 +222,19 @@ export default grammar({
       seq(
         '"',
         repeat(
-          choice($.escape_sequence, $.string_fmt_escape, $.string_fmt, /./),
+          choice(
+            $.escape_sequence,
+            $.string_fmt_escape,
+            $.string_fmt,
+            $.string_segment,
+          ),
         ),
         '"',
       ),
     string_line: _ => seq("\\\\", /.*/),
     string_fmt: $ => seq("{", optional($.statements), "}"),
     string_fmt_escape: _ => /\{\{|\}\}/,
+    string_segment: _ => /[^"{\\]+/,
     escape_sequence: _ =>
       seq(
         "\\",

@@ -65,7 +65,8 @@ export default grammar({
         optional(field("type_parameters", $.type_params)),
         optional(field("type_body", $.type_body)),
       ),
-    type_params: $ => seq("(", list_of($.lower, ","), ")"),
+    type_params: $ =>
+      seq("(", list_of(field("type_parameter", $.lower), ","), ")"),
     type_body: $ =>
       seq(
         "{",
@@ -77,7 +78,10 @@ export default grammar({
       ),
     type_field: $ => seq(field("name", $.lower), $.type),
     type_constructor: $ =>
-      seq($.upper, seq("(", list_of($.type_constructor_value, ","), ")")),
+      seq(
+        field("name", $.upper),
+        seq("(", list_of($.type_constructor_value, ","), ")"),
+      ),
     type_constructor_value: $ => seq(optional($.label), $.type),
 
     label: $ => seq($.lower, ":"),

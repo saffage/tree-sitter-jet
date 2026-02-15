@@ -56,59 +56,7 @@
             "named": false
           },
           {
-            "type": "block",
-            "named": true
-          },
-          {
-            "type": "call",
-            "named": true
-          },
-          {
-            "type": "discard",
-            "named": true
-          },
-          {
-            "type": "float",
-            "named": true
-          },
-          {
-            "type": "if_else",
-            "named": true
-          },
-          {
-            "type": "int",
-            "named": true
-          },
-          {
-            "type": "lambda",
-            "named": true
-          },
-          {
-            "type": "list",
-            "named": true
-          },
-          {
-            "type": "lower",
-            "named": true
-          },
-          {
-            "type": "member_access",
-            "named": true
-          },
-          {
-            "type": "raw_string",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          },
-          {
-            "type": "upper",
-            "named": true
-          },
-          {
-            "type": "when",
+            "type": "primary",
             "named": true
           },
           {
@@ -228,59 +176,7 @@
             "named": false
           },
           {
-            "type": "block",
-            "named": true
-          },
-          {
-            "type": "call",
-            "named": true
-          },
-          {
-            "type": "discard",
-            "named": true
-          },
-          {
-            "type": "float",
-            "named": true
-          },
-          {
-            "type": "if_else",
-            "named": true
-          },
-          {
-            "type": "int",
-            "named": true
-          },
-          {
-            "type": "lambda",
-            "named": true
-          },
-          {
-            "type": "list",
-            "named": true
-          },
-          {
-            "type": "lower",
-            "named": true
-          },
-          {
-            "type": "member_access",
-            "named": true
-          },
-          {
-            "type": "raw_string",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          },
-          {
-            "type": "upper",
-            "named": true
-          },
-          {
-            "type": "when",
+            "type": "primary",
             "named": true
           },
           {
@@ -295,74 +191,11 @@
       "required": false,
       "types": [
         {
-          "type": "block",
+          "type": "label",
           "named": true
         },
         {
-          "type": "call",
-          "named": true
-        },
-        {
-          "type": "discard",
-          "named": true
-        },
-        {
-          "type": "float",
-          "named": true
-        },
-        {
-          "type": "if_else",
-          "named": true
-        },
-        {
-          "type": "int",
-          "named": true
-        },
-        {
-          "type": "lambda",
-          "named": true
-        },
-        {
-          "type": "list",
-          "named": true
-        },
-        {
-          "type": "lower",
-          "named": true
-        },
-        {
-          "type": "member_access",
-          "named": true
-        },
-        {
-          "type": "raw_string",
-          "named": true
-        },
-        {
-          "type": "string",
-          "named": true
-        },
-        {
-          "type": "upper",
-          "named": true
-        },
-        {
-          "type": "when",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "binding_pattern",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "lower",
+          "type": "primary",
           "named": true
         }
       ]
@@ -425,59 +258,7 @@
             "named": false
           },
           {
-            "type": "block",
-            "named": true
-          },
-          {
-            "type": "call",
-            "named": true
-          },
-          {
-            "type": "discard",
-            "named": true
-          },
-          {
-            "type": "float",
-            "named": true
-          },
-          {
-            "type": "if_else",
-            "named": true
-          },
-          {
-            "type": "int",
-            "named": true
-          },
-          {
-            "type": "lambda",
-            "named": true
-          },
-          {
-            "type": "list",
-            "named": true
-          },
-          {
-            "type": "lower",
-            "named": true
-          },
-          {
-            "type": "member_access",
-            "named": true
-          },
-          {
-            "type": "raw_string",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          },
-          {
-            "type": "upper",
-            "named": true
-          },
-          {
-            "type": "when",
+            "type": "primary",
             "named": true
           },
           {
@@ -597,59 +378,7 @@
             "named": false
           },
           {
-            "type": "block",
-            "named": true
-          },
-          {
-            "type": "call",
-            "named": true
-          },
-          {
-            "type": "discard",
-            "named": true
-          },
-          {
-            "type": "float",
-            "named": true
-          },
-          {
-            "type": "if_else",
-            "named": true
-          },
-          {
-            "type": "int",
-            "named": true
-          },
-          {
-            "type": "lambda",
-            "named": true
-          },
-          {
-            "type": "list",
-            "named": true
-          },
-          {
-            "type": "lower",
-            "named": true
-          },
-          {
-            "type": "member_access",
-            "named": true
-          },
-          {
-            "type": "raw_string",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          },
-          {
-            "type": "upper",
-            "named": true
-          },
-          {
-            "type": "when",
+            "type": "primary",
             "named": true
           },
           {
@@ -664,23 +393,7 @@
       "required": false,
       "types": [
         {
-          "type": "block",
-          "named": true
-        },
-        {
-          "type": "call",
-          "named": true
-        },
-        {
           "type": "constant_definition",
-          "named": true
-        },
-        {
-          "type": "discard",
-          "named": true
-        },
-        {
-          "type": "float",
           "named": true
         },
         {
@@ -688,39 +401,11 @@
           "named": true
         },
         {
-          "type": "if_else",
-          "named": true
-        },
-        {
           "type": "import",
           "named": true
         },
         {
-          "type": "int",
-          "named": true
-        },
-        {
-          "type": "lambda",
-          "named": true
-        },
-        {
-          "type": "list",
-          "named": true
-        },
-        {
-          "type": "lower",
-          "named": true
-        },
-        {
-          "type": "member_access",
-          "named": true
-        },
-        {
-          "type": "raw_string",
-          "named": true
-        },
-        {
-          "type": "string",
+          "type": "primary",
           "named": true
         },
         {
@@ -732,15 +417,7 @@
           "named": true
         },
         {
-          "type": "upper",
-          "named": true
-        },
-        {
           "type": "value_definition",
-          "named": true
-        },
-        {
-          "type": "when",
           "named": true
         }
       ]
@@ -803,59 +480,7 @@
             "named": false
           },
           {
-            "type": "block",
-            "named": true
-          },
-          {
-            "type": "call",
-            "named": true
-          },
-          {
-            "type": "discard",
-            "named": true
-          },
-          {
-            "type": "float",
-            "named": true
-          },
-          {
-            "type": "if_else",
-            "named": true
-          },
-          {
-            "type": "int",
-            "named": true
-          },
-          {
-            "type": "lambda",
-            "named": true
-          },
-          {
-            "type": "list",
-            "named": true
-          },
-          {
-            "type": "lower",
-            "named": true
-          },
-          {
-            "type": "member_access",
-            "named": true
-          },
-          {
-            "type": "raw_string",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          },
-          {
-            "type": "upper",
-            "named": true
-          },
-          {
-            "type": "when",
+            "type": "primary",
             "named": true
           },
           {
@@ -975,59 +600,7 @@
             "named": false
           },
           {
-            "type": "block",
-            "named": true
-          },
-          {
-            "type": "call",
-            "named": true
-          },
-          {
-            "type": "discard",
-            "named": true
-          },
-          {
-            "type": "float",
-            "named": true
-          },
-          {
-            "type": "if_else",
-            "named": true
-          },
-          {
-            "type": "int",
-            "named": true
-          },
-          {
-            "type": "lambda",
-            "named": true
-          },
-          {
-            "type": "list",
-            "named": true
-          },
-          {
-            "type": "lower",
-            "named": true
-          },
-          {
-            "type": "member_access",
-            "named": true
-          },
-          {
-            "type": "raw_string",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          },
-          {
-            "type": "upper",
-            "named": true
-          },
-          {
-            "type": "when",
+            "type": "primary",
             "named": true
           },
           {
@@ -1046,59 +619,7 @@
           "named": true
         },
         {
-          "type": "block",
-          "named": true
-        },
-        {
-          "type": "call",
-          "named": true
-        },
-        {
-          "type": "discard",
-          "named": true
-        },
-        {
-          "type": "float",
-          "named": true
-        },
-        {
-          "type": "if_else",
-          "named": true
-        },
-        {
-          "type": "int",
-          "named": true
-        },
-        {
-          "type": "lambda",
-          "named": true
-        },
-        {
-          "type": "list",
-          "named": true
-        },
-        {
-          "type": "lower",
-          "named": true
-        },
-        {
-          "type": "member_access",
-          "named": true
-        },
-        {
-          "type": "raw_string",
-          "named": true
-        },
-        {
-          "type": "string",
-          "named": true
-        },
-        {
-          "type": "upper",
-          "named": true
-        },
-        {
-          "type": "when",
+          "type": "primary",
           "named": true
         }
       ]
@@ -1187,59 +708,7 @@
             "named": false
           },
           {
-            "type": "block",
-            "named": true
-          },
-          {
-            "type": "call",
-            "named": true
-          },
-          {
-            "type": "discard",
-            "named": true
-          },
-          {
-            "type": "float",
-            "named": true
-          },
-          {
-            "type": "if_else",
-            "named": true
-          },
-          {
-            "type": "int",
-            "named": true
-          },
-          {
-            "type": "lambda",
-            "named": true
-          },
-          {
-            "type": "list",
-            "named": true
-          },
-          {
-            "type": "lower",
-            "named": true
-          },
-          {
-            "type": "member_access",
-            "named": true
-          },
-          {
-            "type": "raw_string",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          },
-          {
-            "type": "upper",
-            "named": true
-          },
-          {
-            "type": "when",
+            "type": "primary",
             "named": true
           },
           {
@@ -1311,59 +780,7 @@
             "named": false
           },
           {
-            "type": "block",
-            "named": true
-          },
-          {
-            "type": "call",
-            "named": true
-          },
-          {
-            "type": "discard",
-            "named": true
-          },
-          {
-            "type": "float",
-            "named": true
-          },
-          {
-            "type": "if_else",
-            "named": true
-          },
-          {
-            "type": "int",
-            "named": true
-          },
-          {
-            "type": "lambda",
-            "named": true
-          },
-          {
-            "type": "list",
-            "named": true
-          },
-          {
-            "type": "lower",
-            "named": true
-          },
-          {
-            "type": "member_access",
-            "named": true
-          },
-          {
-            "type": "raw_string",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          },
-          {
-            "type": "upper",
-            "named": true
-          },
-          {
-            "type": "when",
+            "type": "primary",
             "named": true
           },
           {
@@ -1425,59 +842,7 @@
             "named": false
           },
           {
-            "type": "block",
-            "named": true
-          },
-          {
-            "type": "call",
-            "named": true
-          },
-          {
-            "type": "discard",
-            "named": true
-          },
-          {
-            "type": "float",
-            "named": true
-          },
-          {
-            "type": "if_else",
-            "named": true
-          },
-          {
-            "type": "int",
-            "named": true
-          },
-          {
-            "type": "lambda",
-            "named": true
-          },
-          {
-            "type": "list",
-            "named": true
-          },
-          {
-            "type": "lower",
-            "named": true
-          },
-          {
-            "type": "member_access",
-            "named": true
-          },
-          {
-            "type": "raw_string",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          },
-          {
-            "type": "upper",
-            "named": true
-          },
-          {
-            "type": "when",
+            "type": "primary",
             "named": true
           },
           {
@@ -1597,59 +962,7 @@
             "named": false
           },
           {
-            "type": "block",
-            "named": true
-          },
-          {
-            "type": "call",
-            "named": true
-          },
-          {
-            "type": "discard",
-            "named": true
-          },
-          {
-            "type": "float",
-            "named": true
-          },
-          {
-            "type": "if_else",
-            "named": true
-          },
-          {
-            "type": "int",
-            "named": true
-          },
-          {
-            "type": "lambda",
-            "named": true
-          },
-          {
-            "type": "list",
-            "named": true
-          },
-          {
-            "type": "lower",
-            "named": true
-          },
-          {
-            "type": "member_access",
-            "named": true
-          },
-          {
-            "type": "raw_string",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          },
-          {
-            "type": "upper",
-            "named": true
-          },
-          {
-            "type": "when",
+            "type": "primary",
             "named": true
           },
           {
@@ -1749,59 +1062,7 @@
             "named": false
           },
           {
-            "type": "block",
-            "named": true
-          },
-          {
-            "type": "call",
-            "named": true
-          },
-          {
-            "type": "discard",
-            "named": true
-          },
-          {
-            "type": "float",
-            "named": true
-          },
-          {
-            "type": "if_else",
-            "named": true
-          },
-          {
-            "type": "int",
-            "named": true
-          },
-          {
-            "type": "lambda",
-            "named": true
-          },
-          {
-            "type": "list",
-            "named": true
-          },
-          {
-            "type": "lower",
-            "named": true
-          },
-          {
-            "type": "member_access",
-            "named": true
-          },
-          {
-            "type": "raw_string",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          },
-          {
-            "type": "upper",
-            "named": true
-          },
-          {
-            "type": "when",
+            "type": "primary",
             "named": true
           },
           {
@@ -1921,59 +1182,7 @@
             "named": false
           },
           {
-            "type": "block",
-            "named": true
-          },
-          {
-            "type": "call",
-            "named": true
-          },
-          {
-            "type": "discard",
-            "named": true
-          },
-          {
-            "type": "float",
-            "named": true
-          },
-          {
-            "type": "if_else",
-            "named": true
-          },
-          {
-            "type": "int",
-            "named": true
-          },
-          {
-            "type": "lambda",
-            "named": true
-          },
-          {
-            "type": "list",
-            "named": true
-          },
-          {
-            "type": "lower",
-            "named": true
-          },
-          {
-            "type": "member_access",
-            "named": true
-          },
-          {
-            "type": "raw_string",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          },
-          {
-            "type": "upper",
-            "named": true
-          },
-          {
-            "type": "when",
+            "type": "primary",
             "named": true
           },
           {
@@ -2035,59 +1244,7 @@
             "named": false
           },
           {
-            "type": "block",
-            "named": true
-          },
-          {
-            "type": "call",
-            "named": true
-          },
-          {
-            "type": "discard",
-            "named": true
-          },
-          {
-            "type": "float",
-            "named": true
-          },
-          {
-            "type": "if_else",
-            "named": true
-          },
-          {
-            "type": "int",
-            "named": true
-          },
-          {
-            "type": "lambda",
-            "named": true
-          },
-          {
-            "type": "list",
-            "named": true
-          },
-          {
-            "type": "lower",
-            "named": true
-          },
-          {
-            "type": "member_access",
-            "named": true
-          },
-          {
-            "type": "raw_string",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          },
-          {
-            "type": "upper",
-            "named": true
-          },
-          {
-            "type": "when",
+            "type": "primary",
             "named": true
           },
           {
@@ -2111,10 +1268,6 @@
         },
         {
           "type": "list_pattern",
-          "named": true
-        },
-        {
-          "type": "rebinding_pattern",
           "named": true
         },
         {
@@ -2153,10 +1306,37 @@
   {
     "type": "constructor_value_pattern",
     "named": true,
-    "fields": {},
+    "fields": {
+      "alternative": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "binding_pattern",
+            "named": true
+          },
+          {
+            "type": "constructor_pattern",
+            "named": true
+          },
+          {
+            "type": "list_pattern",
+            "named": true
+          },
+          {
+            "type": "rebinding_pattern",
+            "named": true
+          },
+          {
+            "type": "typed_binding_pattern",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "binding_pattern",
@@ -2167,11 +1347,11 @@
           "named": true
         },
         {
-          "type": "list_pattern",
+          "type": "label",
           "named": true
         },
         {
-          "type": "lower",
+          "type": "list_pattern",
           "named": true
         },
         {
@@ -2210,15 +1390,19 @@
         "required": false,
         "types": [
           {
-            "type": ":",
-            "named": false
-          },
-          {
-            "type": "lower",
+            "type": "fn_type",
             "named": true
           },
           {
-            "type": "type",
+            "type": "label",
+            "named": true
+          },
+          {
+            "type": "named_type",
+            "named": true
+          },
+          {
+            "type": "type_variable",
             "named": true
           }
         ]
@@ -2228,7 +1412,15 @@
         "required": false,
         "types": [
           {
-            "type": "type",
+            "type": "fn_type",
+            "named": true
+          },
+          {
+            "type": "named_type",
+            "named": true
+          },
+          {
+            "type": "type_variable",
             "named": true
           }
         ]
@@ -2264,7 +1456,15 @@
         "required": false,
         "types": [
           {
-            "type": "type",
+            "type": "fn_type",
+            "named": true
+          },
+          {
+            "type": "named_type",
+            "named": true
+          },
+          {
+            "type": "type_variable",
             "named": true
           }
         ]
@@ -2338,59 +1538,7 @@
             "named": false
           },
           {
-            "type": "block",
-            "named": true
-          },
-          {
-            "type": "call",
-            "named": true
-          },
-          {
-            "type": "discard",
-            "named": true
-          },
-          {
-            "type": "float",
-            "named": true
-          },
-          {
-            "type": "if_else",
-            "named": true
-          },
-          {
-            "type": "int",
-            "named": true
-          },
-          {
-            "type": "lambda",
-            "named": true
-          },
-          {
-            "type": "list",
-            "named": true
-          },
-          {
-            "type": "lower",
-            "named": true
-          },
-          {
-            "type": "member_access",
-            "named": true
-          },
-          {
-            "type": "raw_string",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          },
-          {
-            "type": "upper",
-            "named": true
-          },
-          {
-            "type": "when",
+            "type": "primary",
             "named": true
           },
           {
@@ -2462,59 +1610,7 @@
             "named": false
           },
           {
-            "type": "block",
-            "named": true
-          },
-          {
-            "type": "call",
-            "named": true
-          },
-          {
-            "type": "discard",
-            "named": true
-          },
-          {
-            "type": "float",
-            "named": true
-          },
-          {
-            "type": "if_else",
-            "named": true
-          },
-          {
-            "type": "int",
-            "named": true
-          },
-          {
-            "type": "lambda",
-            "named": true
-          },
-          {
-            "type": "list",
-            "named": true
-          },
-          {
-            "type": "lower",
-            "named": true
-          },
-          {
-            "type": "member_access",
-            "named": true
-          },
-          {
-            "type": "raw_string",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          },
-          {
-            "type": "upper",
-            "named": true
-          },
-          {
-            "type": "when",
+            "type": "primary",
             "named": true
           },
           {
@@ -2634,59 +1730,7 @@
             "named": false
           },
           {
-            "type": "block",
-            "named": true
-          },
-          {
-            "type": "call",
-            "named": true
-          },
-          {
-            "type": "discard",
-            "named": true
-          },
-          {
-            "type": "float",
-            "named": true
-          },
-          {
-            "type": "if_else",
-            "named": true
-          },
-          {
-            "type": "int",
-            "named": true
-          },
-          {
-            "type": "lambda",
-            "named": true
-          },
-          {
-            "type": "list",
-            "named": true
-          },
-          {
-            "type": "lower",
-            "named": true
-          },
-          {
-            "type": "member_access",
-            "named": true
-          },
-          {
-            "type": "raw_string",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          },
-          {
-            "type": "upper",
-            "named": true
-          },
-          {
-            "type": "when",
+            "type": "primary",
             "named": true
           },
           {
@@ -2783,6 +1827,11 @@
     "fields": {}
   },
   {
+    "type": "label",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "lambda",
     "named": true,
     "fields": {
@@ -2801,7 +1850,15 @@
         "required": false,
         "types": [
           {
-            "type": "type",
+            "type": "fn_type",
+            "named": true
+          },
+          {
+            "type": "named_type",
+            "named": true
+          },
+          {
+            "type": "type_variable",
             "named": true
           }
         ]
@@ -2890,59 +1947,7 @@
             "named": false
           },
           {
-            "type": "block",
-            "named": true
-          },
-          {
-            "type": "call",
-            "named": true
-          },
-          {
-            "type": "discard",
-            "named": true
-          },
-          {
-            "type": "float",
-            "named": true
-          },
-          {
-            "type": "if_else",
-            "named": true
-          },
-          {
-            "type": "int",
-            "named": true
-          },
-          {
-            "type": "lambda",
-            "named": true
-          },
-          {
-            "type": "list",
-            "named": true
-          },
-          {
-            "type": "lower",
-            "named": true
-          },
-          {
-            "type": "member_access",
-            "named": true
-          },
-          {
-            "type": "raw_string",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          },
-          {
-            "type": "upper",
-            "named": true
-          },
-          {
-            "type": "when",
+            "type": "primary",
             "named": true
           },
           {
@@ -3062,59 +2067,7 @@
             "named": false
           },
           {
-            "type": "block",
-            "named": true
-          },
-          {
-            "type": "call",
-            "named": true
-          },
-          {
-            "type": "discard",
-            "named": true
-          },
-          {
-            "type": "float",
-            "named": true
-          },
-          {
-            "type": "if_else",
-            "named": true
-          },
-          {
-            "type": "int",
-            "named": true
-          },
-          {
-            "type": "lambda",
-            "named": true
-          },
-          {
-            "type": "list",
-            "named": true
-          },
-          {
-            "type": "lower",
-            "named": true
-          },
-          {
-            "type": "member_access",
-            "named": true
-          },
-          {
-            "type": "raw_string",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          },
-          {
-            "type": "upper",
-            "named": true
-          },
-          {
-            "type": "when",
+            "type": "primary",
             "named": true
           },
           {
@@ -3129,63 +2082,11 @@
       "required": false,
       "types": [
         {
-          "type": "block",
-          "named": true
-        },
-        {
-          "type": "call",
-          "named": true
-        },
-        {
-          "type": "discard",
-          "named": true
-        },
-        {
-          "type": "float",
-          "named": true
-        },
-        {
-          "type": "if_else",
-          "named": true
-        },
-        {
-          "type": "int",
-          "named": true
-        },
-        {
-          "type": "lambda",
-          "named": true
-        },
-        {
-          "type": "list",
-          "named": true
-        },
-        {
           "type": "list_spread",
           "named": true
         },
         {
-          "type": "lower",
-          "named": true
-        },
-        {
-          "type": "member_access",
-          "named": true
-        },
-        {
-          "type": "raw_string",
-          "named": true
-        },
-        {
-          "type": "string",
-          "named": true
-        },
-        {
-          "type": "upper",
-          "named": true
-        },
-        {
-          "type": "when",
+          "type": "primary",
           "named": true
         }
       ]
@@ -3209,10 +2110,37 @@
   {
     "type": "list_pattern_item",
     "named": true,
-    "fields": {},
+    "fields": {
+      "alternative": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "binding_pattern",
+            "named": true
+          },
+          {
+            "type": "constructor_pattern",
+            "named": true
+          },
+          {
+            "type": "list_pattern",
+            "named": true
+          },
+          {
+            "type": "rebinding_pattern",
+            "named": true
+          },
+          {
+            "type": "typed_binding_pattern",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "binding_pattern",
@@ -3313,59 +2241,7 @@
             "named": false
           },
           {
-            "type": "block",
-            "named": true
-          },
-          {
-            "type": "call",
-            "named": true
-          },
-          {
-            "type": "discard",
-            "named": true
-          },
-          {
-            "type": "float",
-            "named": true
-          },
-          {
-            "type": "if_else",
-            "named": true
-          },
-          {
-            "type": "int",
-            "named": true
-          },
-          {
-            "type": "lambda",
-            "named": true
-          },
-          {
-            "type": "list",
-            "named": true
-          },
-          {
-            "type": "lower",
-            "named": true
-          },
-          {
-            "type": "member_access",
-            "named": true
-          },
-          {
-            "type": "raw_string",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          },
-          {
-            "type": "upper",
-            "named": true
-          },
-          {
-            "type": "when",
+            "type": "primary",
             "named": true
           },
           {
@@ -3485,59 +2361,7 @@
             "named": false
           },
           {
-            "type": "block",
-            "named": true
-          },
-          {
-            "type": "call",
-            "named": true
-          },
-          {
-            "type": "discard",
-            "named": true
-          },
-          {
-            "type": "float",
-            "named": true
-          },
-          {
-            "type": "if_else",
-            "named": true
-          },
-          {
-            "type": "int",
-            "named": true
-          },
-          {
-            "type": "lambda",
-            "named": true
-          },
-          {
-            "type": "list",
-            "named": true
-          },
-          {
-            "type": "lower",
-            "named": true
-          },
-          {
-            "type": "member_access",
-            "named": true
-          },
-          {
-            "type": "raw_string",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          },
-          {
-            "type": "upper",
-            "named": true
-          },
-          {
-            "type": "when",
+            "type": "primary",
             "named": true
           },
           {
@@ -3550,6 +2374,127 @@
     "children": {
       "multiple": false,
       "required": false,
+      "types": [
+        {
+          "type": "primary",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "lower",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "member_access",
+    "named": true,
+    "fields": {
+      "member": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "lower",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "discard",
+          "named": true
+        },
+        {
+          "type": "lower",
+          "named": true
+        },
+        {
+          "type": "member_access",
+          "named": true
+        },
+        {
+          "type": "upper",
+          "named": true
+        },
+        {
+          "type": "when",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "named_type",
+    "named": true,
+    "fields": {
+      "type_argument": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "fn_type",
+            "named": true
+          },
+          {
+            "type": "named_type",
+            "named": true
+          },
+          {
+            "type": "type_variable",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "parameters",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "binding_pattern",
+          "named": true
+        },
+        {
+          "type": "constructor_pattern",
+          "named": true
+        },
+        {
+          "type": "list_pattern",
+          "named": true
+        },
+        {
+          "type": "typed_binding_pattern",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "primary",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
       "types": [
         {
           "type": "block",
@@ -3611,87 +2556,6 @@
     }
   },
   {
-    "type": "member_access",
-    "named": true,
-    "fields": {
-      "member": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "lower",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "block",
-          "named": true
-        },
-        {
-          "type": "call",
-          "named": true
-        },
-        {
-          "type": "discard",
-          "named": true
-        },
-        {
-          "type": "lower",
-          "named": true
-        },
-        {
-          "type": "member_access",
-          "named": true
-        },
-        {
-          "type": "upper",
-          "named": true
-        },
-        {
-          "type": "when",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "parameters",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "binding_pattern",
-          "named": true
-        },
-        {
-          "type": "constructor_pattern",
-          "named": true
-        },
-        {
-          "type": "list_pattern",
-          "named": true
-        },
-        {
-          "type": "rebinding_pattern",
-          "named": true
-        },
-        {
-          "type": "typed_binding_pattern",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "raw_string",
     "named": true,
     "fields": {},
@@ -3713,7 +2577,34 @@
   {
     "type": "rebinding_pattern",
     "named": true,
-    "fields": {},
+    "fields": {
+      "alternative": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "binding_pattern",
+            "named": true
+          },
+          {
+            "type": "constructor_pattern",
+            "named": true
+          },
+          {
+            "type": "list_pattern",
+            "named": true
+          },
+          {
+            "type": "rebinding_pattern",
+            "named": true
+          },
+          {
+            "type": "typed_binding_pattern",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -3799,59 +2690,7 @@
             "named": false
           },
           {
-            "type": "block",
-            "named": true
-          },
-          {
-            "type": "call",
-            "named": true
-          },
-          {
-            "type": "discard",
-            "named": true
-          },
-          {
-            "type": "float",
-            "named": true
-          },
-          {
-            "type": "if_else",
-            "named": true
-          },
-          {
-            "type": "int",
-            "named": true
-          },
-          {
-            "type": "lambda",
-            "named": true
-          },
-          {
-            "type": "list",
-            "named": true
-          },
-          {
-            "type": "lower",
-            "named": true
-          },
-          {
-            "type": "member_access",
-            "named": true
-          },
-          {
-            "type": "raw_string",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          },
-          {
-            "type": "upper",
-            "named": true
-          },
-          {
-            "type": "when",
+            "type": "primary",
             "named": true
           },
           {
@@ -3971,59 +2810,7 @@
             "named": false
           },
           {
-            "type": "block",
-            "named": true
-          },
-          {
-            "type": "call",
-            "named": true
-          },
-          {
-            "type": "discard",
-            "named": true
-          },
-          {
-            "type": "float",
-            "named": true
-          },
-          {
-            "type": "if_else",
-            "named": true
-          },
-          {
-            "type": "int",
-            "named": true
-          },
-          {
-            "type": "lambda",
-            "named": true
-          },
-          {
-            "type": "list",
-            "named": true
-          },
-          {
-            "type": "lower",
-            "named": true
-          },
-          {
-            "type": "member_access",
-            "named": true
-          },
-          {
-            "type": "raw_string",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          },
-          {
-            "type": "upper",
-            "named": true
-          },
-          {
-            "type": "when",
+            "type": "primary",
             "named": true
           },
           {
@@ -4038,23 +2825,7 @@
       "required": false,
       "types": [
         {
-          "type": "block",
-          "named": true
-        },
-        {
-          "type": "call",
-          "named": true
-        },
-        {
           "type": "constant_definition",
-          "named": true
-        },
-        {
-          "type": "discard",
-          "named": true
-        },
-        {
-          "type": "float",
           "named": true
         },
         {
@@ -4062,39 +2833,11 @@
           "named": true
         },
         {
-          "type": "if_else",
-          "named": true
-        },
-        {
           "type": "import",
           "named": true
         },
         {
-          "type": "int",
-          "named": true
-        },
-        {
-          "type": "lambda",
-          "named": true
-        },
-        {
-          "type": "list",
-          "named": true
-        },
-        {
-          "type": "lower",
-          "named": true
-        },
-        {
-          "type": "member_access",
-          "named": true
-        },
-        {
-          "type": "raw_string",
-          "named": true
-        },
-        {
-          "type": "string",
+          "type": "primary",
           "named": true
         },
         {
@@ -4106,15 +2849,7 @@
           "named": true
         },
         {
-          "type": "upper",
-          "named": true
-        },
-        {
           "type": "value_definition",
-          "named": true
-        },
-        {
-          "type": "when",
           "named": true
         }
       ]
@@ -4204,59 +2939,7 @@
             "named": false
           },
           {
-            "type": "block",
-            "named": true
-          },
-          {
-            "type": "call",
-            "named": true
-          },
-          {
-            "type": "discard",
-            "named": true
-          },
-          {
-            "type": "float",
-            "named": true
-          },
-          {
-            "type": "if_else",
-            "named": true
-          },
-          {
-            "type": "int",
-            "named": true
-          },
-          {
-            "type": "lambda",
-            "named": true
-          },
-          {
-            "type": "list",
-            "named": true
-          },
-          {
-            "type": "lower",
-            "named": true
-          },
-          {
-            "type": "member_access",
-            "named": true
-          },
-          {
-            "type": "raw_string",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          },
-          {
-            "type": "upper",
-            "named": true
-          },
-          {
-            "type": "when",
+            "type": "primary",
             "named": true
           },
           {
@@ -4376,59 +3059,7 @@
             "named": false
           },
           {
-            "type": "block",
-            "named": true
-          },
-          {
-            "type": "call",
-            "named": true
-          },
-          {
-            "type": "discard",
-            "named": true
-          },
-          {
-            "type": "float",
-            "named": true
-          },
-          {
-            "type": "if_else",
-            "named": true
-          },
-          {
-            "type": "int",
-            "named": true
-          },
-          {
-            "type": "lambda",
-            "named": true
-          },
-          {
-            "type": "list",
-            "named": true
-          },
-          {
-            "type": "lower",
-            "named": true
-          },
-          {
-            "type": "member_access",
-            "named": true
-          },
-          {
-            "type": "raw_string",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          },
-          {
-            "type": "upper",
-            "named": true
-          },
-          {
-            "type": "when",
+            "type": "primary",
             "named": true
           },
           {
@@ -4443,23 +3074,7 @@
       "required": false,
       "types": [
         {
-          "type": "block",
-          "named": true
-        },
-        {
-          "type": "call",
-          "named": true
-        },
-        {
           "type": "constant_definition",
-          "named": true
-        },
-        {
-          "type": "discard",
-          "named": true
-        },
-        {
-          "type": "float",
           "named": true
         },
         {
@@ -4467,39 +3082,11 @@
           "named": true
         },
         {
-          "type": "if_else",
-          "named": true
-        },
-        {
           "type": "import",
           "named": true
         },
         {
-          "type": "int",
-          "named": true
-        },
-        {
-          "type": "lambda",
-          "named": true
-        },
-        {
-          "type": "list",
-          "named": true
-        },
-        {
-          "type": "lower",
-          "named": true
-        },
-        {
-          "type": "member_access",
-          "named": true
-        },
-        {
-          "type": "raw_string",
-          "named": true
-        },
-        {
-          "type": "string",
+          "type": "primary",
           "named": true
         },
         {
@@ -4511,49 +3098,7 @@
           "named": true
         },
         {
-          "type": "upper",
-          "named": true
-        },
-        {
           "type": "value_definition",
-          "named": true
-        },
-        {
-          "type": "when",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "type",
-    "named": true,
-    "fields": {
-      "type_argument": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "type",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "fn_type",
-          "named": true
-        },
-        {
-          "type": "lower",
-          "named": true
-        },
-        {
-          "type": "upper",
           "named": true
         }
       ]
@@ -4579,7 +3124,15 @@
       "required": true,
       "types": [
         {
-          "type": "type",
+          "type": "fn_type",
+          "named": true
+        },
+        {
+          "type": "named_type",
+          "named": true
+        },
+        {
+          "type": "type_variable",
           "named": true
         }
       ]
@@ -4639,11 +3192,19 @@
       "required": true,
       "types": [
         {
-          "type": "lower",
+          "type": "fn_type",
           "named": true
         },
         {
-          "type": "type",
+          "type": "label",
+          "named": true
+        },
+        {
+          "type": "named_type",
+          "named": true
+        },
+        {
+          "type": "type_variable",
           "named": true
         }
       ]
@@ -4699,7 +3260,15 @@
       "required": true,
       "types": [
         {
-          "type": "type",
+          "type": "fn_type",
+          "named": true
+        },
+        {
+          "type": "named_type",
+          "named": true
+        },
+        {
+          "type": "type_variable",
           "named": true
         }
       ]
@@ -4722,6 +3291,11 @@
     }
   },
   {
+    "type": "type_variable",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "typed_binding_pattern",
     "named": true,
     "fields": {},
@@ -4734,11 +3308,24 @@
           "named": true
         },
         {
-          "type": "type",
+          "type": "fn_type",
+          "named": true
+        },
+        {
+          "type": "named_type",
+          "named": true
+        },
+        {
+          "type": "type_variable",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "upper",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "value_definition",
@@ -4797,59 +3384,7 @@
             "named": false
           },
           {
-            "type": "block",
-            "named": true
-          },
-          {
-            "type": "call",
-            "named": true
-          },
-          {
-            "type": "discard",
-            "named": true
-          },
-          {
-            "type": "float",
-            "named": true
-          },
-          {
-            "type": "if_else",
-            "named": true
-          },
-          {
-            "type": "int",
-            "named": true
-          },
-          {
-            "type": "lambda",
-            "named": true
-          },
-          {
-            "type": "list",
-            "named": true
-          },
-          {
-            "type": "lower",
-            "named": true
-          },
-          {
-            "type": "member_access",
-            "named": true
-          },
-          {
-            "type": "raw_string",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          },
-          {
-            "type": "upper",
-            "named": true
-          },
-          {
-            "type": "when",
+            "type": "primary",
             "named": true
           },
           {
@@ -4969,59 +3504,7 @@
             "named": false
           },
           {
-            "type": "block",
-            "named": true
-          },
-          {
-            "type": "call",
-            "named": true
-          },
-          {
-            "type": "discard",
-            "named": true
-          },
-          {
-            "type": "float",
-            "named": true
-          },
-          {
-            "type": "if_else",
-            "named": true
-          },
-          {
-            "type": "int",
-            "named": true
-          },
-          {
-            "type": "lambda",
-            "named": true
-          },
-          {
-            "type": "list",
-            "named": true
-          },
-          {
-            "type": "lower",
-            "named": true
-          },
-          {
-            "type": "member_access",
-            "named": true
-          },
-          {
-            "type": "raw_string",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          },
-          {
-            "type": "upper",
-            "named": true
-          },
-          {
-            "type": "when",
+            "type": "primary",
             "named": true
           },
           {
@@ -5083,59 +3566,7 @@
             "named": false
           },
           {
-            "type": "block",
-            "named": true
-          },
-          {
-            "type": "call",
-            "named": true
-          },
-          {
-            "type": "discard",
-            "named": true
-          },
-          {
-            "type": "float",
-            "named": true
-          },
-          {
-            "type": "if_else",
-            "named": true
-          },
-          {
-            "type": "int",
-            "named": true
-          },
-          {
-            "type": "lambda",
-            "named": true
-          },
-          {
-            "type": "list",
-            "named": true
-          },
-          {
-            "type": "lower",
-            "named": true
-          },
-          {
-            "type": "member_access",
-            "named": true
-          },
-          {
-            "type": "raw_string",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          },
-          {
-            "type": "upper",
-            "named": true
-          },
-          {
-            "type": "when",
+            "type": "primary",
             "named": true
           },
           {
@@ -5159,10 +3590,6 @@
         },
         {
           "type": "list_pattern",
-          "named": true
-        },
-        {
-          "type": "rebinding_pattern",
           "named": true
         },
         {
@@ -5229,59 +3656,7 @@
             "named": false
           },
           {
-            "type": "block",
-            "named": true
-          },
-          {
-            "type": "call",
-            "named": true
-          },
-          {
-            "type": "discard",
-            "named": true
-          },
-          {
-            "type": "float",
-            "named": true
-          },
-          {
-            "type": "if_else",
-            "named": true
-          },
-          {
-            "type": "int",
-            "named": true
-          },
-          {
-            "type": "lambda",
-            "named": true
-          },
-          {
-            "type": "list",
-            "named": true
-          },
-          {
-            "type": "lower",
-            "named": true
-          },
-          {
-            "type": "member_access",
-            "named": true
-          },
-          {
-            "type": "raw_string",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          },
-          {
-            "type": "upper",
-            "named": true
-          },
-          {
-            "type": "when",
+            "type": "primary",
             "named": true
           },
           {
@@ -5401,59 +3776,7 @@
             "named": false
           },
           {
-            "type": "block",
-            "named": true
-          },
-          {
-            "type": "call",
-            "named": true
-          },
-          {
-            "type": "discard",
-            "named": true
-          },
-          {
-            "type": "float",
-            "named": true
-          },
-          {
-            "type": "if_else",
-            "named": true
-          },
-          {
-            "type": "int",
-            "named": true
-          },
-          {
-            "type": "lambda",
-            "named": true
-          },
-          {
-            "type": "list",
-            "named": true
-          },
-          {
-            "type": "lower",
-            "named": true
-          },
-          {
-            "type": "member_access",
-            "named": true
-          },
-          {
-            "type": "raw_string",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          },
-          {
-            "type": "upper",
-            "named": true
-          },
-          {
-            "type": "when",
+            "type": "primary",
             "named": true
           },
           {
@@ -5515,59 +3838,7 @@
             "named": false
           },
           {
-            "type": "block",
-            "named": true
-          },
-          {
-            "type": "call",
-            "named": true
-          },
-          {
-            "type": "discard",
-            "named": true
-          },
-          {
-            "type": "float",
-            "named": true
-          },
-          {
-            "type": "if_else",
-            "named": true
-          },
-          {
-            "type": "int",
-            "named": true
-          },
-          {
-            "type": "lambda",
-            "named": true
-          },
-          {
-            "type": "list",
-            "named": true
-          },
-          {
-            "type": "lower",
-            "named": true
-          },
-          {
-            "type": "member_access",
-            "named": true
-          },
-          {
-            "type": "raw_string",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          },
-          {
-            "type": "upper",
-            "named": true
-          },
-          {
-            "type": "when",
+            "type": "primary",
             "named": true
           },
           {
@@ -5705,6 +3976,10 @@
     "named": false
   },
   {
+    "type": "binding_pattern",
+    "named": true
+  },
+  {
     "type": "discard",
     "named": true
   },
@@ -5729,10 +4004,6 @@
     "named": false
   },
   {
-    "type": "lower",
-    "named": true
-  },
-  {
     "type": "raw_string_char",
     "named": true
   },
@@ -5751,10 +4022,6 @@
   {
     "type": "type",
     "named": false
-  },
-  {
-    "type": "upper",
-    "named": true
   },
   {
     "type": "val",

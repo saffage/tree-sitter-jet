@@ -68,6 +68,10 @@
         "members": [
           {
             "type": "SYMBOL",
+            "name": "fn_type"
+          },
+          {
+            "type": "SYMBOL",
             "name": "lower"
           },
           {
@@ -155,6 +159,42 @@
           }
         ]
       }
+    },
+    "fn_type": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "fn"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_newline"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "parameters"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "return_type",
+              "content": {
+                "type": "SYMBOL",
+                "name": "type"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
     },
     "_newline": {
       "type": "PATTERN",

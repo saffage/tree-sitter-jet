@@ -48,6 +48,7 @@ export default grammar({
     type: $ =>
       prec.left(
         choice(
+          $.fn_type,
           $.lower,
           seq(
             $.upper,
@@ -56,6 +57,13 @@ export default grammar({
             ),
           ),
         ),
+      ),
+    fn_type: $ =>
+      seq(
+        "fn",
+        repeat($._newline),
+        $.parameters,
+        optional(field("return_type", $.type)),
       ),
 
     // Match multiple newlines to reduce token spamming.

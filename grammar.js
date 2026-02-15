@@ -17,38 +17,64 @@ function maybe_list_of(rule, separator) {
   return optional(list_of(rule, separator));
 }
 
+/**
+ * @param {function(string | number, RuleOrLiteral): PrecLeftRule | PrecRightRule} assoc
+ * @param {number} precedence
+ * @param {RegExp | RustRegex | string} operator
+ * @param {RuleOrLiteral} left
+ * @param {RuleOrLiteral | null} right
+ */
+function binary(assoc, precedence, operator, left, right = null) {
+  return assoc(
+    precedence,
+    seq(
+      field("left", left),
+      field("operator", operator),
+      field("right", right || left),
+    ),
+  );
+}
+
 export default grammar({
   name: "jet",
   extras: $ => [/\s/, $.doc_comment, $.comment],
-  inline: $ => [
-    $.statements,
-    $.statement,
-    $.expression,
-    $.pattern,
-    $.string_like,
-    $.statement_separator,
-  ],
   rules: {
-    source_file: $ => $.statements,
+    source_file: $ => $._statements,
 
     /*
-     * Newline can be used as statement separator but to reduce token spamming
-     * we match multiple newlines.
+     * Common rules.
      */
-    newline: _ => /(\r?\n)+/,
+    _label: $ => seq($.lower, ":"),
+    type: $ =>
+      prec.left(
+        choice(
+          $.lower,
+          seq(
+            $.upper,
+            optional(
+              seq("(", maybe_list_of(field("type_argument", $.type), ","), ")"),
+            ),
+          ),
+        ),
+      ),
+
+    // Match multiple newlines to reduce token spamming.
+    _newline: _ => /(\r?\n)+/,
 
     doc_comment: _ => prec(2, seq("##", /.*/)),
     comment: _ => choice(prec(1, seq("#", /.*/)), prec(3, seq("###", /.*/))),
 
-    statements: $ => list_of($.statement, $.statement_separator),
-    statement_separator: $ => choice(";", $.newline),
-    statement: $ =>
+    _statements: $ => list_of($._statement, $._statement_separator),
+    _statement_separator: $ => choice(";", $._newline),
+    _statement: $ =>
       choice(
         $.import,
         $.constant_definition,
+        $.value_definition,
         $.function_definition,
+        $.type_alias,
         $.type_definition,
-        $.expression,
+        $._expression,
       ),
 
     import: $ =>
@@ -73,25 +99,53 @@ export default grammar({
       ),
 
     constant_definition: $ =>
-      seq("let", $.pattern, "=", field("value", $.expression)),
+      seq(
+        "let",
+        repeat($._newline),
+        $._pattern,
+        repeat($._newline),
+        "=",
+        repeat($._newline),
+        field("value", $._expression),
+      ),
+
+    value_definition: $ =>
+      prec.left(
+        seq(
+          choice("val", "var"),
+          repeat($._newline),
+          $._pattern,
+          repeat($._newline),
+          optional(seq("=", repeat($._newline), field("value", $._expression))),
+        ),
+      ),
 
     function_definition: $ =>
       prec.right(
         seq(
           "fn",
-          repeat($.newline),
+          repeat($._newline),
           field("name", $.lower),
-          repeat($.newline),
+          repeat($._newline),
           $.parameters,
           optional(field("return_type", $.type)),
           optional(field("body", $.block)),
         ),
       ),
 
+    type_alias: $ =>
+      seq(
+        "type",
+        repeat($._newline),
+        field("name", $.upper),
+        "=",
+        repeat($._newline),
+        $.type,
+      ),
     type_definition: $ =>
       seq(
         "type",
-        repeat($.newline),
+        repeat($._newline),
         field("name", $.upper),
         optional($.type_parameters),
         optional($.type_body),
@@ -103,7 +157,7 @@ export default grammar({
         "{",
         maybe_list_of(
           choice($.type_field, $.type_constructor),
-          $.statement_separator,
+          $._statement_separator,
         ),
         "}",
       ),
@@ -113,86 +167,101 @@ export default grammar({
         field("name", $.upper),
         optional(seq("(", list_of($.type_constructor_value, ","), ")")),
       ),
-    type_constructor_value: $ => seq(optional($.label), $.type),
+    type_constructor_value: $ => seq(optional($._label), $.type),
 
-    label: $ => seq($.lower, ":"),
-
-    expression: $ =>
+    _expression: $ => choice($._binary_expression, $._primary),
+    _unary: $ => seq(repeat(choice("+", "-", "!")), $._primary),
+    _binary_expression: $ =>
       choice(
-        $.lower,
-        $.upper,
-        $.string_like,
-        $.list,
+        binary(prec.left, 1, "||", $._expression),
+        binary(prec.left, 2, "&&", $._expression),
+        binary(prec.left, 3, "==", $._expression),
+        binary(prec.left, 3, "!=", $._expression),
+        binary(prec.left, 4, "<", $._expression),
+        binary(prec.left, 4, "<=", $._expression),
+        binary(prec.left, 4, ">", $._expression),
+        binary(prec.left, 4, ">=", $._expression),
+        binary(prec.left, 6, "+", $._expression),
+        binary(prec.left, 6, "-", $._expression),
+        binary(prec.left, 7, "*", $._expression),
+        binary(prec.left, 7, "/", $._expression),
+        binary(prec.left, 7, "%", $._expression),
+      ),
+    _primary: $ =>
+      choice(
+        $._number,
+        $._identifier,
+        $._string,
         $.block,
+        $.list,
         $.when,
         $.if_else,
         $.lambda,
+        $.call,
+        $.member_access,
       ),
 
+    block: $ => seq("{", optional($._statements), "}"),
     list: $ => seq("[", maybe_list_of($.list_item, ","), "]"),
-    list_item: $ => choice($.list_spread, $.expression),
-    list_spread: $ => seq("..", $.expression),
+    list_item: $ => choice($.list_spread, $._expression),
+    list_spread: $ => seq("..", $._expression),
+
+    call: $ => seq($._expression, "(", maybe_list_of($.argument, ","), ")"),
+    argument: $ => seq(optional($._label), $._expression),
+
+    member_access: $ =>
+      seq($._member_access_operand, ".", field("member", $.lower)),
+    _member_access_operand: $ =>
+      choice($._identifier, $.block, $.when, $.call, $.member_access),
 
     when: $ =>
       seq(
         "when",
-        repeat($.newline),
-        field("subject", $.expression),
-        repeat($.newline),
+        repeat($._newline),
+        field("subject", $._expression),
+        repeat($._newline),
         "{",
-        maybe_list_of($.clause, $.statement_separator),
+        maybe_list_of($.clause, $._statement_separator),
         "}",
       ),
     clause: $ =>
       seq(
-        $.pattern,
+        $._pattern,
         optional(
-          field("guard", seq("if", field("guard_expression", $.expression))),
+          field("guard", seq("if", field("guard_expression", $._expression))),
         ),
-        repeat($.newline),
+        repeat($._newline),
         "->",
-        repeat($.newline),
-        $.expression,
+        repeat($._newline),
+        $._expression,
       ),
 
     lambda: $ =>
       prec.right(
         seq(
           "fn",
-          repeat($.newline),
+          repeat($._newline),
           $.parameters,
           optional(field("return_type", $.type)),
           optional(field("body", $.block)),
         ),
       ),
+    parameters: $ =>
+      seq(
+        "(",
+        optional(seq($._pattern, repeat(seq(",", $._pattern)), optional(","))),
+        ")",
+      ),
 
     if_else: $ =>
       seq(
         "if",
-        field("condition", $.expression),
+        field("condition", $._expression),
         field("then_block", $.block),
         optional(seq("else", choice($.if_else, field("else_block", $.block)))),
       ),
 
-    type: $ => choice($.lower, seq($.upper, optional($.type_args))),
-    type_args: $ =>
-      seq(
-        "(",
-        optional(seq($.type, repeat(seq(",", $.type)), optional(","))),
-        ")",
-      ),
-
-    parameters: $ =>
-      seq(
-        "(",
-        optional(seq($.pattern, repeat(seq(",", $.pattern)), optional(","))),
-        ")",
-      ),
-
-    /*
-     * Patterns grammar.
-     */
-    pattern: $ =>
+    _pattern: $ =>
       choice(
         $.rebinding_pattern,
         $.binding_pattern,
@@ -201,7 +270,7 @@ export default grammar({
         $.list_pattern,
       ),
     binding_pattern: $ => $.lower,
-    rebinding_pattern: $ => seq($.pattern, "as", $.binding_pattern),
+    rebinding_pattern: $ => seq($._pattern, "as", $.binding_pattern),
     typed_binding_pattern: $ => seq($.binding_pattern, $.type),
     constructor_pattern: $ =>
       seq(
@@ -210,14 +279,19 @@ export default grammar({
           seq("(", maybe_list_of($.constructor_value_pattern, ","), ")"),
         ),
       ),
-    constructor_value_pattern: $ => seq(optional($.label), $.pattern),
+    constructor_value_pattern: $ => seq(optional($._label), $._pattern),
     list_pattern: $ => seq("[", maybe_list_of($.list_pattern_item, ","), "]"),
-    list_pattern_item: $ => choice($.list_pattern_spead, $.pattern),
+    list_pattern_item: $ => choice($.list_pattern_spead, $._pattern),
     list_pattern_spead: $ => seq("..", optional($.binding_pattern)),
 
-    block: $ => seq("{", optional($.statements), "}"),
+    _identifier: $ => choice($.lower, $.upper, $.discard),
+    lower: _ => /[a-z][a-zA-Z0-9_]*/,
+    upper: _ => /[A-Z][a-zA-Z0-9_]*/,
+    discard: _ => /_[a-zA-Z0-9_]*/,
 
-    string_like: $ => choice($.string_line, $.string),
+    _string: $ => choice($.line_string, $.raw_string, $.string),
+    line_string: _ => seq("\\\\", /.*/),
+    raw_string: $ => seq("`", repeat($.string_segment), "`"),
     string: $ =>
       seq(
         '"',
@@ -231,8 +305,7 @@ export default grammar({
         ),
         '"',
       ),
-    string_line: _ => seq("\\\\", /.*/),
-    string_fmt: $ => seq("{", optional($.statements), "}"),
+    string_fmt: $ => seq("{", optional($._statements), "}"),
     string_fmt_escape: _ => /\{\{|\}\}/,
     string_segment: _ => /[^"{\\]+/,
     escape_sequence: _ =>
@@ -250,8 +323,21 @@ export default grammar({
         ),
       ),
 
-    lower: _ => /[a-z][a-zA-Z0-9_]*/,
-    upper: _ => /[A-Z][a-zA-Z0-9_]*/,
-    discard: _ => /_[a-zA-Z0-9_]*/,
+    _number: $ => choice($.float, $.int),
+    float: $ =>
+      seq(
+        optional("-"),
+        $._decimal,
+        ".",
+        optional($._decimal),
+        optional(seq(/[eE][+-]?/, $._decimal)),
+      ),
+    int: $ =>
+      seq(optional("-"), choice($._hex, $._decimal, $._octal, $._binary)),
+    // NOTE: compiler disallows [0X, 0B, 0O] but we don't.
+    _hex: _ => /0[xX][0-9a-fA-F][_0-9a-fA-F]*/,
+    _octal: _ => /0[oO][0-7][_0-7]*/,
+    _binary: _ => /0[bB][0-1][_0-1]*/,
+    _decimal: _ => /[0-9][0-9_]*/,
   },
 });

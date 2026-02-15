@@ -2352,8 +2352,17 @@
         {
           "type": "REPEAT",
           "content": {
-            "type": "SYMBOL",
-            "name": "string_segment"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "raw_string_escape"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "raw_string_segment"
+              }
+            ]
           }
         },
         {
@@ -2361,6 +2370,14 @@
           "value": "`"
         }
       ]
+    },
+    "raw_string_escape": {
+      "type": "STRING",
+      "value": "``"
+    },
+    "raw_string_segment": {
+      "type": "PATTERN",
+      "value": "[^`]"
     },
     "string": {
       "type": "SEQ",

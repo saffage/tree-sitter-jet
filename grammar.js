@@ -291,7 +291,10 @@ export default grammar({
 
     _string: $ => choice($.line_string, $.raw_string, $.string),
     line_string: _ => seq("\\\\", /.*/),
-    raw_string: $ => seq("`", repeat($.string_segment), "`"),
+    raw_string: $ =>
+      seq("`", repeat(choice($.raw_string_escape, $.raw_string_segment)), "`"),
+    raw_string_escape: _ => "``",
+    raw_string_segment: _ => /[^`]/,
     string: $ =>
       seq(
         '"',

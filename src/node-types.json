@@ -3687,7 +3687,11 @@
       "required": false,
       "types": [
         {
-          "type": "string_segment",
+          "type": "raw_string_escape",
+          "named": true
+        },
+        {
+          "type": "raw_string_segment",
           "named": true
         }
       ]
@@ -5765,6 +5769,14 @@
   },
   {
     "type": "lower",
+    "named": true
+  },
+  {
+    "type": "raw_string_escape",
+    "named": true
+  },
+  {
+    "type": "raw_string_segment",
     "named": true
   },
   {

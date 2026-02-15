@@ -1981,7 +1981,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_pattern"
+          "name": "_pattern_alternatives"
         },
         {
           "type": "CHOICE",
@@ -2031,8 +2031,12 @@
           }
         },
         {
-          "type": "SYMBOL",
-          "name": "_expression"
+          "type": "FIELD",
+          "name": "body",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expression"
+          }
         }
       ]
     },
@@ -2206,6 +2210,35 @@
               "type": "BLANK"
             }
           ]
+        }
+      ]
+    },
+    "_pattern_alternatives": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_pattern"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "|"
+              },
+              {
+                "type": "FIELD",
+                "name": "alternative",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_pattern"
+                }
+              }
+            ]
+          }
         }
       ]
     },

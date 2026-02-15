@@ -241,14 +241,14 @@ export default grammar({
       ),
     clause: $ =>
       seq(
-        $._pattern,
+        $._pattern_alternatives,
         optional(
           field("guard", seq("if", field("guard_expression", $._expression))),
         ),
         repeat($._newline),
         "->",
         repeat($._newline),
-        $._expression,
+        field("body", $._expression),
       ),
 
     lambda: $ =>
@@ -276,6 +276,8 @@ export default grammar({
         optional(seq("else", choice($.if_else, field("else_block", $.block)))),
       ),
 
+    _pattern_alternatives: $ =>
+      seq($._pattern, repeat(seq("|", field("alternative", $._pattern)))),
     _pattern: $ =>
       choice(
         $.rebinding_pattern,

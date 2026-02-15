@@ -3687,11 +3687,11 @@
       "required": false,
       "types": [
         {
-          "type": "raw_string_escape",
+          "type": "raw_string_char",
           "named": true
         },
         {
-          "type": "raw_string_segment",
+          "type": "raw_string_escape",
           "named": true
         }
       ]
@@ -5772,11 +5772,11 @@
     "named": true
   },
   {
-    "type": "raw_string_escape",
+    "type": "raw_string_char",
     "named": true
   },
   {
-    "type": "raw_string_segment",
+    "type": "raw_string_escape",
     "named": true
   },
   {

@@ -2246,39 +2246,6 @@
         }
       ]
     },
-    "_pattern_alternatives": {
-      "type": "PREC_RIGHT",
-      "value": 0,
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "SYMBOL",
-            "name": "_pattern"
-          },
-          {
-            "type": "REPEAT",
-            "content": {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "|"
-                },
-                {
-                  "type": "FIELD",
-                  "name": "alternative",
-                  "content": {
-                    "type": "SYMBOL",
-                    "name": "_pattern"
-                  }
-                }
-              ]
-            }
-          }
-        ]
-      }
-    },
     "_pattern": {
       "type": "CHOICE",
       "members": [
@@ -2286,6 +2253,15 @@
           "type": "SYMBOL",
           "name": "rebinding_pattern"
         },
+        {
+          "type": "SYMBOL",
+          "name": "_pattern_unit"
+        }
+      ]
+    },
+    "_pattern_unit": {
+      "type": "CHOICE",
+      "members": [
         {
           "type": "SYMBOL",
           "name": "binding_pattern"
@@ -2301,27 +2277,89 @@
         {
           "type": "SYMBOL",
           "name": "list_pattern"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "float"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "int"
         }
       ]
     },
-    "binding_pattern": {
-      "type": "PATTERN",
-      "value": "[_a-z][_a-zA-Z0-9]*"
-    },
     "rebinding_pattern": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "pattern",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_pattern_unit"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": "as"
+          },
+          {
+            "type": "FIELD",
+            "name": "alias",
+            "content": {
+              "type": "SYMBOL",
+              "name": "binding_pattern"
+            }
+          }
+        ]
+      }
+    },
+    "_pattern_alternatives": {
       "type": "SEQ",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_pattern_alternatives"
+          "name": "_pattern"
         },
         {
-          "type": "STRING",
-          "value": "as"
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "|"
+              },
+              {
+                "type": "FIELD",
+                "name": "alternative",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_pattern"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "binding_pattern": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "[a-z][a-zA-Z0-9_]*"
         },
         {
-          "type": "SYMBOL",
-          "name": "binding_pattern"
+          "type": "PATTERN",
+          "value": "_[a-zA-Z0-9_]*"
         }
       ]
     },
@@ -2418,18 +2456,17 @@
       ]
     },
     "constructor_value_pattern": {
-      "type": "CHOICE",
+      "type": "SEQ",
       "members": [
         {
-          "type": "SEQ",
+          "type": "CHOICE",
           "members": [
             {
               "type": "SYMBOL",
               "name": "label"
             },
             {
-              "type": "SYMBOL",
-              "name": "_pattern_alternatives"
+              "type": "BLANK"
             }
           ]
         },
@@ -2855,11 +2892,7 @@
       "name": "comment"
     }
   ],
-  "conflicts": [
-    [
-      "_pattern_alternatives"
-    ]
-  ],
+  "conflicts": [],
   "precedences": [],
   "externals": [],
   "inline": [],

@@ -42,7 +42,6 @@ const DISCARD = /_[a-zA-Z0-9_]*/;
 export default grammar({
   name: "jet",
   extras: $ => [/\s/, $.doc_comment, $.comment],
-  conflicts: $ => [[$._pattern_alternatives]],
   rules: {
     source_file: $ => maybe_list_of($._statement, $._statement_separator),
 
@@ -293,21 +292,34 @@ export default grammar({
         $.constructor_pattern,
         $.list_pattern,
       ),
-    _pattern_alternatives: $ =>
-      prec.right(
-        seq($._pattern, repeat(seq("|", field("alternative", $._pattern)))),
-      ),
-    _pattern: $ =>
+
+    _pattern: $ => choice($.rebinding_pattern, $._pattern_unit),
+    _pattern_unit: $ =>
       choice(
-        $.rebinding_pattern,
         $.binding_pattern,
         $.typed_binding_pattern,
         $.constructor_pattern,
         $.list_pattern,
+        $.string,
+        $.float,
+        $.int,
       ),
-    binding_pattern: _ => /[_a-z][_a-zA-Z0-9]*/,
+
     rebinding_pattern: $ =>
-      seq($._pattern_alternatives, "as", $.binding_pattern),
+      prec.right(
+        seq(
+          field("pattern", $._pattern_unit),
+          "as",
+          field("alias", $.binding_pattern),
+        ),
+      ),
+
+    _pattern_alternatives: $ =>
+      seq($._pattern, repeat(seq("|", field("alternative", $._pattern)))),
+
+    // Choice fixes an ambiguity with labeled values as the label itself
+    // is a LOWER.
+    binding_pattern: _ => choice(LOWER, DISCARD),
     typed_binding_pattern: $ => seq($.binding_pattern, $._type),
     constructor_pattern: $ =>
       seq(

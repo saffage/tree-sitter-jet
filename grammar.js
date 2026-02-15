@@ -39,7 +39,7 @@ export default grammar({
   name: "jet",
   extras: $ => [/\s/, $.doc_comment, $.comment],
   rules: {
-    source_file: $ => $._statements,
+    source_file: $ => maybe_list_of($._statement, $._statement_separator),
 
     /*
      * Common rules.
@@ -65,7 +65,7 @@ export default grammar({
     comment: _ => choice(prec(1, seq("#", /.*/)), prec(3, seq("###", /.*/))),
 
     _statements: $ => list_of($._statement, $._statement_separator),
-    _statement_separator: $ => choice(";", $._newline),
+    _statement_separator: $ => choice(/;\n?/, $._newline),
     _statement: $ =>
       choice(
         $.import,
@@ -289,9 +289,7 @@ export default grammar({
     upper: _ => /[A-Z][a-zA-Z0-9_]*/,
     discard: _ => /_[a-zA-Z0-9_]*/,
 
-    _string: $ => choice($.line_string, $.raw_string, $.string),
-    line_string: _ => seq("\\\\", /.*/),
-
+    _string: $ => choice($.raw_string, $.string),
     raw_string: $ =>
       seq(
         "`",
@@ -300,7 +298,6 @@ export default grammar({
       ),
     raw_string_escape: _ => token.immediate("``"),
     raw_string_char: _ => token.immediate(/[^`]/),
-
     string: $ =>
       seq(
         '"',

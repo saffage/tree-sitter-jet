@@ -3,8 +3,49 @@
   "name": "jet",
   "rules": {
     "source_file": {
-      "type": "SYMBOL",
-      "name": "_statements"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_statement"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "_statement_separator"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "_statement"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_statement_separator"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BLANK"
+        }
+      ]
     },
     "_label": {
       "type": "SEQ",
@@ -216,8 +257,8 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "STRING",
-          "value": ";"
+          "type": "PATTERN",
+          "value": ";\\n?"
         },
         {
           "type": "SYMBOL",
@@ -2317,28 +2358,11 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "line_string"
-        },
-        {
-          "type": "SYMBOL",
           "name": "raw_string"
         },
         {
           "type": "SYMBOL",
           "name": "string"
-        }
-      ]
-    },
-    "line_string": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "\\\\"
-        },
-        {
-          "type": "PATTERN",
-          "value": ".*"
         }
       ]
     },

@@ -84,10 +84,6 @@
             "named": true
           },
           {
-            "type": "line_string",
-            "named": true
-          },
-          {
             "type": "list",
             "named": true
           },
@@ -260,10 +256,6 @@
             "named": true
           },
           {
-            "type": "line_string",
-            "named": true
-          },
-          {
             "type": "list",
             "named": true
           },
@@ -328,10 +320,6 @@
         },
         {
           "type": "lambda",
-          "named": true
-        },
-        {
-          "type": "line_string",
           "named": true
         },
         {
@@ -465,10 +453,6 @@
             "named": true
           },
           {
-            "type": "line_string",
-            "named": true
-          },
-          {
             "type": "list",
             "named": true
           },
@@ -641,10 +625,6 @@
             "named": true
           },
           {
-            "type": "line_string",
-            "named": true
-          },
-          {
             "type": "list",
             "named": true
           },
@@ -721,10 +701,6 @@
         },
         {
           "type": "lambda",
-          "named": true
-        },
-        {
-          "type": "line_string",
           "named": true
         },
         {
@@ -855,10 +831,6 @@
             "named": true
           },
           {
-            "type": "line_string",
-            "named": true
-          },
-          {
             "type": "list",
             "named": true
           },
@@ -1031,10 +1003,6 @@
             "named": true
           },
           {
-            "type": "line_string",
-            "named": true
-          },
-          {
             "type": "list",
             "named": true
           },
@@ -1103,10 +1071,6 @@
         },
         {
           "type": "lambda",
-          "named": true
-        },
-        {
-          "type": "line_string",
           "named": true
         },
         {
@@ -1235,10 +1199,6 @@
             "named": true
           },
           {
-            "type": "line_string",
-            "named": true
-          },
-          {
             "type": "list",
             "named": true
           },
@@ -1350,10 +1310,6 @@
           },
           {
             "type": "lambda",
-            "named": true
-          },
-          {
-            "type": "line_string",
             "named": true
           },
           {
@@ -1529,10 +1485,6 @@
             "named": true
           },
           {
-            "type": "line_string",
-            "named": true
-          },
-          {
             "type": "list",
             "named": true
           },
@@ -1605,10 +1557,6 @@
         },
         {
           "type": "lambda",
-          "named": true
-        },
-        {
-          "type": "line_string",
           "named": true
         },
         {
@@ -1745,10 +1693,6 @@
             "named": true
           },
           {
-            "type": "line_string",
-            "named": true
-          },
-          {
             "type": "list",
             "named": true
           },
@@ -1921,10 +1865,6 @@
             "named": true
           },
           {
-            "type": "line_string",
-            "named": true
-          },
-          {
             "type": "list",
             "named": true
           },
@@ -2036,10 +1976,6 @@
           },
           {
             "type": "lambda",
-            "named": true
-          },
-          {
-            "type": "line_string",
             "named": true
           },
           {
@@ -2312,10 +2248,6 @@
             "named": true
           },
           {
-            "type": "line_string",
-            "named": true
-          },
-          {
             "type": "list",
             "named": true
           },
@@ -2437,10 +2369,6 @@
           },
           {
             "type": "lambda",
-            "named": true
-          },
-          {
-            "type": "line_string",
             "named": true
           },
           {
@@ -2613,10 +2541,6 @@
           },
           {
             "type": "lambda",
-            "named": true
-          },
-          {
-            "type": "line_string",
             "named": true
           },
           {
@@ -2777,11 +2701,6 @@
     }
   },
   {
-    "type": "line_string",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "list",
     "named": true,
     "fields": {},
@@ -2878,10 +2797,6 @@
           },
           {
             "type": "lambda",
-            "named": true
-          },
-          {
-            "type": "line_string",
             "named": true
           },
           {
@@ -3057,10 +2972,6 @@
             "named": true
           },
           {
-            "type": "line_string",
-            "named": true
-          },
-          {
             "type": "list",
             "named": true
           },
@@ -3125,10 +3036,6 @@
         },
         {
           "type": "lambda",
-          "named": true
-        },
-        {
-          "type": "line_string",
           "named": true
         },
         {
@@ -3316,10 +3223,6 @@
             "named": true
           },
           {
-            "type": "line_string",
-            "named": true
-          },
-          {
             "type": "list",
             "named": true
           },
@@ -3492,10 +3395,6 @@
             "named": true
           },
           {
-            "type": "line_string",
-            "named": true
-          },
-          {
             "type": "list",
             "named": true
           },
@@ -3560,10 +3459,6 @@
         },
         {
           "type": "lambda",
-          "named": true
-        },
-        {
-          "type": "line_string",
           "named": true
         },
         {
@@ -3814,10 +3709,6 @@
             "named": true
           },
           {
-            "type": "line_string",
-            "named": true
-          },
-          {
             "type": "list",
             "named": true
           },
@@ -3990,10 +3881,6 @@
             "named": true
           },
           {
-            "type": "line_string",
-            "named": true
-          },
-          {
             "type": "list",
             "named": true
           },
@@ -4070,10 +3957,6 @@
         },
         {
           "type": "lambda",
-          "named": true
-        },
-        {
-          "type": "line_string",
           "named": true
         },
         {
@@ -4231,10 +4114,6 @@
             "named": true
           },
           {
-            "type": "line_string",
-            "named": true
-          },
-          {
             "type": "list",
             "named": true
           },
@@ -4407,10 +4286,6 @@
             "named": true
           },
           {
-            "type": "line_string",
-            "named": true
-          },
-          {
             "type": "list",
             "named": true
           },
@@ -4487,10 +4362,6 @@
         },
         {
           "type": "lambda",
-          "named": true
-        },
-        {
-          "type": "line_string",
           "named": true
         },
         {
@@ -4832,10 +4703,6 @@
             "named": true
           },
           {
-            "type": "line_string",
-            "named": true
-          },
-          {
             "type": "list",
             "named": true
           },
@@ -5008,10 +4875,6 @@
             "named": true
           },
           {
-            "type": "line_string",
-            "named": true
-          },
-          {
             "type": "list",
             "named": true
           },
@@ -5123,10 +4986,6 @@
           },
           {
             "type": "lambda",
-            "named": true
-          },
-          {
-            "type": "line_string",
             "named": true
           },
           {
@@ -5276,10 +5135,6 @@
             "named": true
           },
           {
-            "type": "line_string",
-            "named": true
-          },
-          {
             "type": "list",
             "named": true
           },
@@ -5452,10 +5307,6 @@
             "named": true
           },
           {
-            "type": "line_string",
-            "named": true
-          },
-          {
             "type": "list",
             "named": true
           },
@@ -5567,10 +5418,6 @@
           },
           {
             "type": "lambda",
-            "named": true
-          },
-          {
-            "type": "line_string",
             "named": true
           },
           {
@@ -5692,10 +5539,6 @@
     "named": false
   },
   {
-    "type": ";",
-    "named": false
-  },
-  {
     "type": "<",
     "named": false
   },
@@ -5725,10 +5568,6 @@
   },
   {
     "type": "\\",
-    "named": false
-  },
-  {
-    "type": "\\\\",
     "named": false
   },
   {

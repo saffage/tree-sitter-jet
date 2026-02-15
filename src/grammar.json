@@ -912,7 +912,7 @@
                   "name": "type_parameter",
                   "content": {
                     "type": "SYMBOL",
-                    "name": "lower"
+                    "name": "type_variable"
                   }
                 },
                 {
@@ -929,7 +929,7 @@
                         "name": "type_parameter",
                         "content": {
                           "type": "SYMBOL",
-                          "name": "lower"
+                          "name": "type_variable"
                         }
                       }
                     ]

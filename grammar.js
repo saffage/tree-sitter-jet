@@ -168,7 +168,11 @@ export default grammar({
         optional($.type_body),
       ),
     type_parameters: $ =>
-      seq("(", maybe_list_of(field("type_parameter", $.lower), ","), ")"),
+      seq(
+        "(",
+        maybe_list_of(field("type_parameter", $.type_variable), ","),
+        ")",
+      ),
     type_body: $ =>
       seq(
         "{",

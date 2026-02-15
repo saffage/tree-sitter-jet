@@ -3357,7 +3357,7 @@
         "required": false,
         "types": [
           {
-            "type": "lower",
+            "type": "type_variable",
             "named": true
           }
         ]

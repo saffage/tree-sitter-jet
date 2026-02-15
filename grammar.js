@@ -62,7 +62,14 @@ export default grammar({
       seq(
         "fn",
         repeat($._newline),
-        $.parameters,
+        seq(
+          "(",
+          maybe_list_of(
+            field("parameter", seq(optional($._label), $.type)),
+            ",",
+          ),
+          ")",
+        ),
         optional(field("return_type", $.type)),
       ),
 

@@ -2121,6 +2121,24 @@
     "type": "fn_type",
     "named": true,
     "fields": {
+      "parameter": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ":",
+            "named": false
+          },
+          {
+            "type": "lower",
+            "named": true
+          },
+          {
+            "type": "type",
+            "named": true
+          }
+        ]
+      },
       "return_type": {
         "multiple": false,
         "required": false,
@@ -2131,16 +2149,6 @@
           }
         ]
       }
-    },
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "parameters",
-          "named": true
-        }
-      ]
     }
   },
   {
